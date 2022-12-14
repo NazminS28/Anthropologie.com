@@ -8,24 +8,29 @@
     font-size: 15px;
     font-family: 'Heebo', sans-serif;
 }
+
+
 .small{
     font-size: 12px;
     font-style: italic;
     margin-top: 9px;
 }
+
+
 .link{
     margin-top: 5px;
     color: #fff;
     font-family: 'Heebo', sans-serif;
     font-size: 14px;
 }
+
+
 .link:hover{
     color:black;
 }
+
+
 .spans{
-    /* width: 100%; */
-    /* border: 2px solid red; */
-    /* margin-top: 0px; */
     font-size: 15px;
     font-family: 'Heebo', sans-serif;
     color:#2e80a1;
@@ -37,6 +42,7 @@
 }
 
 .lists{
+    border: 1px solid red;
     display:flex;
     align-items: center;
     margin: auto;

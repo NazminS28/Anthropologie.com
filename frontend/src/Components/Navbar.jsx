@@ -79,7 +79,7 @@ function Navbar() {
       >
         <div className="carousel-inner" style={{ height: "40px" }}>
           <div
-            style={{ background: "#5e7678",border:"1px solid red" }}
+            style={{ background: "#5e7678", border: "1px solid red" }}
             className="carousel-item active "
           >
             <div className="d-flex  justify-content-center">
@@ -332,7 +332,9 @@ function Navbar() {
 
       <div
         className="d-flex justify-content-between "
-        style={{ borderBottom: "1px solid #d3d3d3" }}
+        style={{ borderBottom: "1px solid #d3d3d3",
+        border: "1px solid red"
+       }}
       >
         <div className="d-flex  ms-5">
           <div
@@ -341,6 +343,7 @@ function Navbar() {
             style={{
               borderLeft: "1px solid #d3d3d3",
               borderTop: "3px solid #167a92",
+              border: "1px solid red",
             }}
           >
             <a href="" style={{ padding: "0px 20px" }}>
@@ -355,7 +358,7 @@ function Navbar() {
             style={{
               borderLeft: "1px solid #d3d3d3",
               borderRight: "1px solid #d3d3d3",
-              marginLeft:"5px"
+              marginLeft: "5px",
             }}
           >
             <a href="" style={{ padding: "0px 20px" }}>
