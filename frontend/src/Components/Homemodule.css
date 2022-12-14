@@ -1,0 +1,310 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+*{
+    margin-top: 0px;
+    /* margin-right: 0px; */
+}
+
+.upper{
+    display: flex;
+    gap: 30px;
+    justify-content: space-around;
+   
+}
+.home-container{
+    padding: 50px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    display: grid;
+    gap:100px;
+    /* border: 2px solid; */
+    justify-content: space-around;
+}
+.fullBtn{
+    height: 4rem;
+   /* width: 812px; */
+
+}
+.btn1{
+    height: auto;
+    width:9rem;
+    background-color: white;
+    position: relative;
+    letter-spacing: 0.06rem;
+    left: 25rem;
+    color: #26262C;
+    bottom: 5rem;
+    font: 0.68rem / 0.68 "Avenir Book", sans-serif;
+    padding: 15px 15px;
+    
+}
+.btn2{
+    height: auto;
+    width:7rem;
+    background-color: white;
+    position: relative;
+    letter-spacing: 0.06rem;
+    left:10rem;
+    color: #26262C;
+    bottom: 5rem;
+    font: 0.68rem / 0.68 "Avenir Book", sans-serif;
+    padding: 15px 15px;
+    
+}
+.btn3{
+    height: auto;
+    width:7rem;
+    background-color: white;
+    position: relative;
+    letter-spacing: 0.06rem;
+    left:10rem;
+    color: #26262C;
+    bottom: 5rem;
+    font: 0.68rem / 0.68 "Avenir Book", sans-serif;
+    padding: 15px 15px;
+    
+}
+.btn4{
+    height: auto;
+    width:7rem;
+    background-color: white;
+    position: relative;
+    letter-spacing: 0.06rem;
+    left:25rem;
+    color: #26262C;
+    bottom: 5rem;
+    font: 0.68rem / 0.68 "Avenir Book", sans-serif;
+    padding: 15px 15px;
+}
+
+
+.btn45{
+    height: auto;
+    width:11rem;
+    background-color: white;
+    position: relative;
+    letter-spacing: 0.06rem;
+    /* left: 25px; */
+    color: #26262C;
+    bottom: 7rem;
+    font: 0.68rem / 0.68 "Avenir Book", sans-serif;
+    padding: 15px 15px;
+}
+
+
+/* .btn44, .btn55, .btn22, .btn33{ */
+    /* height: auto; */
+    /* width:7rem;
+    border: 2px solid red;
+
+    background-color: white;
+    position:absolute;
+    letter-spacing: 0.06rem;
+    right:25rem;
+    color: #26262C;
+    /* bottom: 5rem; */
+    /* font: 0.68rem / 0.68 "Avenir Book", sans-serif;
+    padding: 15px 15px; */ */
+/* } */
+
+
+
+.btn10{
+    height: auto;
+    border: 2px solid red;
+    width:auto;
+    background-color: white;
+    position: relative;
+    letter-spacing: 0.06rem;
+    /* left: 300px; */
+    color: #26262C;
+    top: 1890px;
+    font: 0.68rem / 0.68 "Avenir Book", sans-serif;
+    padding: 15px 20px;
+    
+}
+
+.btn45{
+    left: 435px;
+}
+.btn22{
+    left:995px;
+    top: 570px;
+}
+.btn33{
+    left:995px;
+    top: 1015px;
+}
+.btn44{
+    left:1025px;
+    top: 1450px;
+}
+.btn55{
+    left:1028px;
+    top: 1890px;
+}
+.btn10{
+    left:574px;
+    top: 2505px;
+}
+.firsta{
+    color: #26262C;
+    text-decoration: none;
+}
+.firsta:hover{
+    text-decoration-line: underline;
+}
+
+.up-right{
+    display: grid;
+    gap:15px;
+    justify-content: space-evenly;
+}
+.upleft{
+    display: grid;
+    gap: 15px;
+}
+
+.full > img, .full{
+    width: 100% ;
+    height: 40rem;
+}
+
+.up-right > div > img, .up-right > div{
+    height: 420px;
+    width: 392px;
+}
+
+.mid{
+    display:flex;
+    gap:20px;
+    justify-content: space-between;
+    
+}
+.midimage > img, .midimage{
+    width: 396px;
+    height: 576px;
+}
+/* .midimage{
+    height: 400px;
+    width: 300px;
+} */
+
+.middle {
+    display: flex;
+    justify-content: center;
+}
+.middle > img{
+    /* align-items: center; */
+    height: 40rem;
+    width:87%;
+}
+
+.udivslider p{
+text-align: center;
+}
+
+.udiv > p, .udivslider{
+    color: #63636b;
+    font-weight: lighter;
+    font-stretch: normal;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    font-family: "Spectral Extra Light", serif;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+.udiv, .udivslider{
+    border-bottom: 1px solid #656569;
+    margin-bottom: 2rem;
+}
+.udivslider{
+    border-bottom: 1px solid #e3e3e9
+}
+.exInfo{
+    padding-bottom: 60px;
+    border-bottom: 1px solid #e3e3e9;
+    /* border:1px solid red */
+}
+.udivslider{
+    text-align: left;
+    color: #202022;
+    font-size: 1.3rem;
+    margin-bottom: -50px;
+}
+
+.exImg > img{
+    height: 30rem;
+    width: 32rem;
+    /* border:1px solid red */
+
+}
+.exInfo {
+    display: flex;
+    gap: 20px;
+    /* border:1px solid red; */
+    width: 80%;
+    display: flex;
+    text-align: center;
+    margin: auto;
+    justify-content: space-evenly;
+
+}
+.h3div{
+    box-sizing: border-box;
+}
+.atag > a{
+    color: #167a92;
+    font: 0.7rem/1.3 Avenir Book,sans-serif;
+    letter-spacing: .06rem;
+}
+.atag > a:hover{
+    text-decoration: none;
+   
+}
+
+.h4div{
+    /* border:1px solid red; */
+    /* width: 80%; */
+
+}
+
+.h4div > h4{
+    width: 95%;
+}
+
+
+.h4div > h4, .little{
+    font-family: "Abel", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 50;
+    margin-top: 20px;
+}
+.h4div > h4{
+    font-size: 0.99rem;
+    /* border:1px solid red; */
+    text-align: justify;
+
+    
+}
+.about{
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border-bottom: 1px solid #e3e3e9;
+    text-align: center;
+}
+.about > div > h2{
+    font-family: 'Abel', sans-serif;
+    font-family: 'Roboto Slab', serif;
+    letter-spacing: .06rem;
+    font-weight: 600;
+    font-size: large;
+    line-height: 2rem;
+}
+.about > div > h4{
+    font: 0.8rem/1.3 Avenir Book,sans-serif;
+    letter-spacing: .06rem;
+}
+
