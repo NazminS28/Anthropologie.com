@@ -10,7 +10,12 @@ import Sale from './ProductsPages/Sale';
 function App() {
   return (
     <div className="App">
-   
+      <AllRoute/>
+   <Clothes/>
+   <Shoes/>
+   <Furniture/>
+   <Gardens />
+   <Sale />
     </div>
   );
 }

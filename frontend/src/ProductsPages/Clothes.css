@@ -42,7 +42,7 @@ margin-top: 100px;
 }
 .clothData{
     margin: auto;
-   margin-top: 30px;
+   margin-top: 10px;
    display: grid;
    grid-template-columns: repeat(4,1fr);
  gap:20px;
@@ -50,7 +50,17 @@ margin-top: 100px;
  color:#444;
 
 }
-
+.image{
+    overflow: hidden;
+    margin: 0 auto;
+}
+.image>img{
+    width: 100%;
+        transition: 0.9s all ease-in-out;
+}
+.image>img:hover{
+    transform: scale(1.5) 
+}
 .cloth>div>h1{
     font-size: 12px;
     padding-top: 5px;
@@ -112,4 +122,72 @@ font-size: 18px;
  }
  .btn>button:hover{
 background:skyblue;
+ }
+ .select{
+        width: 140px;
+        border: 2px solid blue;
+        border-radius:5px;
+        margin-left: 10px;
+        height:30px;
+       font-size:12px;
+
+ }
+
+
+ @media only screen and (min-width: 250px) and (max-width: 600px) {
+
+    .clothData{
+        margin: auto;
+       margin-top: 5px;
+       display: grid;
+       grid-template-columns: repeat(2,1fr);
+     gap:15px;
+     font-family:Helvetica Neue,Helvetica,Arial,sans-serif;
+     color:#444;
+    padding-left: 10px;
+    }
+    .product{
+        width:95%;
+        margin-left:0px
+    }
+    .product-child1>p{
+        font-size: 18px;
+        margin-left: 5px;
+        color:black;
+        font-weight: 600;
+      }
+      .btn>button{
+        font-size: 20px;
+        width:5%;
+      }
+      .select{
+        width: 50px;
+        border: 1px solid blue;
+        border-radius:5px;
+        margin-left: 2px;
+        height:20px;
+       font-size:10px;
+       margin-top:7px;
+
+ }
+ .sidebar{
+    display:none;
+}
+
+ }
+ 
+ @media only screen and (min-width: 600px) and (max-width: 800px) {
+    .clothData{
+        margin: auto;
+       margin-top: 10px;
+       display: grid;
+       grid-template-columns: repeat(3,1fr);
+     gap:20px;
+     font-family:Helvetica Neue,Helvetica,Arial,sans-serif;
+     color:#444;
+    
+    }
+
+
+
  }

@@ -100,7 +100,7 @@ return 0
               <div className="clothData">
                 {cloth.length>0 && cloth.map((data)=>(
                     <div key ={data.id} className="cloth">
-                        <div> <img src={data.img1} alt=""/></div>
+                        <div className="image"> <img src={data.img1} alt=""/></div>
                         <div> <h1>{data.title}</h1></div>
                         <div><p>${data.price}</p></div>
                         {data.id%2==0?<div style={{ display: "flex",marginTop:"5px" }}> 
