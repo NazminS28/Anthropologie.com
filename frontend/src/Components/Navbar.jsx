@@ -79,7 +79,7 @@ function Navbar() {
       >
         <div className="carousel-inner" style={{ height: "40px" }}>
           <div
-            style={{ background: "#5e7678" }}
+            style={{ background: "#5e7678",border:"1px solid red" }}
             className="carousel-item active "
           >
             <div className="d-flex  justify-content-center">
@@ -97,7 +97,7 @@ function Navbar() {
               <p className={`${styles.para} ${styles.small}`}>just added!</p>
               <p className={styles.para}>NEW SALE STYLES</p>
               <a className={styles.link} href="/">
-                shop, sale clothing, home & more
+                Shop, sale clothing, home & more
               </a>
             </div>
           </div>

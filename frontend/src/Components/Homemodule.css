@@ -19,14 +19,16 @@
     box-sizing: border-box;
     display: grid;
     gap:100px;
-    /* border: 2px solid; */
+    border: 2px solid;
     justify-content: space-around;
 }
+
+
 .fullBtn{
     height: 4rem;
-   /* width: 812px; */
-
 }
+
+
 .btn1{
     height: auto;
     width:9rem;
