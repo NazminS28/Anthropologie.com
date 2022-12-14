@@ -10,9 +10,9 @@ export const Slider = () => {
   const [sliderdata,setSliderdata]=React.useState([])
 
   React.useEffect(()=>{
-    fetch(`http://localhost:3001/shoes`)
+    fetch(`https://anthropologie-server-production.up.railway.app/new_clothing`)
     .then((res)=>res.json())
-    .then((data)=>setSliderdata(data))
+    .then((data)=>(setSliderdata(data)))
   },[])
 
   $(document).ready(function () {

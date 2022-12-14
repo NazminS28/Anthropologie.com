@@ -6,12 +6,24 @@ const Home = () => {
   const [data, setdata] = useState([]);
   const [data1, setdata1] = useState([]);
 
+
+  useEffect(()=>{
+    fetch(` https://anthropologie-server-production.up.railway.app/new_clothing`)
+    .then((res)=>res.json())
+    .then((d)=>setdata(d))
+
+    fetch(` https://stock-server.onrender.com/lamps`)
+    .then((res)=>(res.json()))
+    .then((d)=>(setdata1(d)))
+},[])
+
+
   return (
     <div className="home-container">
       <div className="upper">
         <div className="upleft">
           <div className="full">
-            <img src="https://images.ctfassets.net/5de70he6op10/6O4o9CPoov1N3SUAzpVx0J/5a33425eac3c498bc66a2d0aa4795c67/050222_HPG_LS_M1.jpg?w=1756&q=80&fm=webp" />
+            <img src="https://anthropologie1.netlify.app/static/media/ShopNew.f530b9d23db4c539ad6f.webp" />
             <div className="fullBtn">
               <div className="btn1">
                 <a href="" className="firsta">
@@ -32,7 +44,7 @@ const Home = () => {
               </div>
             </div>
             <div className="midimage">
-              <img src="https://images.ctfassets.net/5de70he6op10/j4jfRLSCojibA9tLTz7tq/fe904a67d777bf6af9da224f0e5c227f/050222_HPG_2UP_Sets.jpg?w=856&q=80&fm=webp" />
+              <img src="https://anthropologie1.netlify.app/static/media/Wedding.71b246e06bc6f912baf3.webp" />
               <div className="midBtn">
                 <div className="btn3">
                   <a href="" className="firsta">
