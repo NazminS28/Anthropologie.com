@@ -5,7 +5,6 @@ import { useEffect,useState } from 'react';
 import {useParams,Link } from "react-router-dom";
 import {MdAddShoppingCart } from 'react-icons/md';
 import { Button,useToast,Icon } from '@chakra-ui/react';
-
 const ClothesSingle = () => {
     const [signleCloth,setSingleCloth]=useState({})
     const {id}=useParams()
@@ -95,3 +94,6 @@ const ClothesSingle = () => {
 }
 
 export default ClothesSingle
+
+
+

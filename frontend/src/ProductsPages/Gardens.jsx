@@ -17,6 +17,7 @@ const fetchData = (page) => {
         setLoading(true);
         console.log(e);
         setClothes(e.data);
+
       })
       .catch((r) => {
         setLoading(false);
@@ -34,6 +35,8 @@ const handlePageChange = (changeBy) => {
     setPage(page + changeBy);
   };
     
+
+
   const filterCloth = (e) => {
     const sorting = e.target.value;
     let arr = [...cloth]
@@ -106,15 +109,7 @@ const handlePageChange = (changeBy) => {
                     
                     <label style={{marginTop:"5px"}}>Sort:</label>
             <select
-    
-          style={{
-            width: "140px",
-            border: "2px solid blue",
-            borderRadius:"5px",
-            marginLeft: "10px",
-            height:"30px",
-           fontSize:"12px",
-          }}
+    className="select"
           onChange={filterCloth}>
            <option value="featured">Featured</option>
                                 <option value="low">Price:Low to High</option>
@@ -135,7 +130,7 @@ const handlePageChange = (changeBy) => {
               <div className="clothData">
                 {cloth.length>0 && cloth.map((data)=>(
                     <div key ={data.id} className="cloth">
-                       <Link to={`/cloth/${data.id}`}> <div> <img src={data.image} alt=""/></div> </Link>
+                       <Link to={`/cloth/${data.id}`}> <div className="image"> <img src={data.image} alt=""/></div> </Link>
                         <div> <h1>{data.name}</h1></div>
                         <div><p>${data.price}</p></div>
                         {data.id%2==0?<div style={{ display: "flex",marginTop:"5px" }}> 
