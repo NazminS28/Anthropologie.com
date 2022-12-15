@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import styles from "./payment.css";
+import styles from "./payment.module.css"
 
 const Payment = (props) => {
   const [total, settTotal] = useState(0);
+  const {handleClick}=props;
 
   return (
-    <div className={styles.mainDiv} style={{ top: `${props.top}` }}>
+    <div className={styles.payment} style={{ top: `${props.top}` }}>
       <div>
-        <h2 className={styles.orderSummary}>Order Summary</h2>
+        <h2 >Order Summary</h2>
       </div>
       <div>
         <div>
@@ -27,10 +28,10 @@ const Payment = (props) => {
           <span style={{ color: "black", float: "right" }}>${total}</span>
         </div>
         <div>
-          <button className={styles.button} onClick={() => props.clickMe()}>
+          <button className={styles.btn} style={{}} onClick={()=>handleClick()}>
             {props.title}{" "}
           </button>
-          <div className={styles.payPal}>
+          <div >
             <img
               height="25px"
               src="https://www.anthropologie.com/static/v3/images/paypal-logo-ef75c426f33092b001a8a3d1a90d391f.svg"
@@ -45,16 +46,17 @@ const Payment = (props) => {
           <div style={{ border: "none" }}>
             <h2>
               <button
+              className={styles.btnPromo}
                 type="button"
-                style={{ backgroundColor: "white", padding: "0rem 0.25rem" }}
+                style={{ padding: "0rem 0.25rem" }}
               >
                 Promo Code
               </button>
             </h2>
             <div>
               <div style={{ padding: "1rem 0.25rem" }}>
-                <input className={styles.promoCode} type="text" />
-                <button className={styles.applyBtn}>Apply</button>
+                <input type="text" />
+                <button >Apply</button>
               </div>
             </div>
           </div>

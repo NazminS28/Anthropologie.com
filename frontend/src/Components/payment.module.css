@@ -1,0 +1,32 @@
+
+
+@media (min-width: 0px) and (max-width: 400px) {
+    
+  }
+  @media (min-width: 400px) and (max-width: 768px) {
+    
+  }
+  @media (min-width: 768px) {
+    
+  }
+.btn{
+    background-color: rgb(228, 243, 243);
+    margin: 1rem 0rem;
+    height: 5vh;
+    width: 80%;
+    border-radius: 0.5rem;
+}
+.btn:hover{
+    background-color: rgb(196, 245, 245);
+    
+}
+.btnPromo{
+    background-color: rgb(228, 243, 243);
+    margin: 1rem 0rem;
+    height: 5vh;
+    border-radius: 0.5rem;
+}
+.btnPromo:hover{
+    background-color: rgb(196, 245, 245);
+    
+}
