@@ -1,12 +1,10 @@
 import "./Clothes.css"
-import axios from "axios"
 import shoes from "./Shoesdata"
-import { Button } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
-import {ChevronLeftIcon,ChevronRightIcon} from "@chakra-ui/icons"
 
 const Shoes = () => {
 const [cloth,setClothes]=useState(shoes)
+const [loading,setLoading]=useState(false)
 const filterCloth = (e) => {
   const sorting = e.target.value;
   let arr = [...cloth]
@@ -97,6 +95,7 @@ return 0
                    
                  </div>
               </div>
+             
               <div className="clothData">
                 {cloth.length>0 && cloth.map((data)=>(
                     <div key ={data.id} className="cloth">

@@ -78,16 +78,28 @@ margin-top: 100px;
     margin:auto;
     display: flex;
     justify-content: space-between;
+    
  }
+
  .img{
+    overflow: hidden;
+    margin: 0 auto;
     margin-top:50px;
+
  }
  .img>img{
+    transition: 0.9s all ease-in-out;
     margin-left: 20px;
- }
+
+}
+ 
+.img>img:hover{
+    transform: scale(1.5) 
+
+}
  .details{
     margin-top:50px;
-    margin-left: 20px;
+   margin-right: 100px;
     width:30%;
  }
  .details>h1{
@@ -111,13 +123,17 @@ margin-top: 100px;
  .moreCloth{
     width:15%;
     margin-top: 20px;
+   
  }
+
  .btn{
 margin-bottom: 10px;
+
 
  }
  .btn>h6{
     margin-top: 10px;
+    margin-left: 0px;
 font-size: 18px;
  }
  .btn>button:hover{
@@ -133,6 +149,60 @@ background:skyblue;
 
  }
 
+ .Single{
+    margin:auto;
+    margin-top: 140px;
+    width:70%;
+    display:flex;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+ }
+
+ .Single>div>div>h2{
+    font-family:Helvetica Neue,Helvetica,Arial,sans-serif;
+    color: #2f3337;
+    font-size: 30px;
+    font-weight: 700;
+    margin-left: 80px;
+ 
+ }
+ .Single>div>div>h1{
+    font-family:Helvetica Neue,Helvetica,Arial,sans-serif;
+    color: #2f3337;
+    font-size: 30px;
+    font-weight: 700; 
+      margin-top: 100px;
+      margin-left: 50px;
+ }
+ .star{
+    margin-left: 70px;
+    margin-top: 20px;
+   }
+   .shop{
+    margin-left: 70px;
+    margin-top: 20px;
+ 
+   }
+   .btn{
+    margin-top: 40px;
+    margin-left: 40px;
+    margin-bottom: 40px;
+ 
+ }
+ .btn>:nth-child(1){
+    background:grey;
+    color: white;
+    margin-left: 20px;
+ }
+   .btn>:nth-child(2){
+    font-size: 20px;
+    padding: 22px;
+    background:grey;
+    color: white;
+    margin-left: 30px;
+   }
+   .btn>button:hover{
+    background: #000;
+   }
 
  @media only screen and (min-width: 250px) and (max-width: 600px) {
 
