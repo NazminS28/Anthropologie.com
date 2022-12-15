@@ -18,7 +18,10 @@
     width: 392px;
 }
 
-
+.lower{
+    width:92%;
+    margin: auto;
+}
 
 .udiv > p{
     color: #63636b;
@@ -68,6 +71,45 @@
     justify-content: space-evenly;
 
 }
+
+
+#Top{
+    text-align: center;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e3e3e9;
+}
+
+#Top{
+    color: #63636b;
+    font-weight: lighter;
+    font-stretch: normal;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    font-family: "Spectral Extra Light", serif;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+
+
+#Recent{
+    text-align: center;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e3e3e9;
+}
+
+#Recent{
+    color: #63636b;
+    font-weight: lighter;
+    font-stretch: normal;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    font-family: "Spectral Extra Light", serif;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+
 .h3div{
     box-sizing: border-box;
 }
@@ -85,7 +127,6 @@
 .h4div > h4{
     width: 95%;
 }
-
 
 .h4div > h4, .little{
     font-family: "Abel", sans-serif;
@@ -146,7 +187,7 @@
     display: grid;
     grid-template-columns: repeat(2,1fr);
     grid-template-rows: repeat(3,1fr);
-    gap: 40px 0px;
+    gap: 15px 0px;
     grid-template-areas: 
     "A E"
     "B C"
@@ -261,7 +302,7 @@ a{
     display: grid;
     grid-template-rows: repeat(1,1fr);
     grid-template-rows: repeat(3,1fr);
-    gap: 40px 0px;
+    gap: 15px 0px;
     grid-template-areas: 
     "E"
     "F"
@@ -341,7 +382,7 @@ a{
     display: grid;
     grid-template-rows: repeat(2,1fr);
     grid-template-rows: repeat(1,1fr);
-    gap: 0px 20px;
+    gap: 0px 0px;
     grid-template-areas:
     "I J";
 }
@@ -383,6 +424,7 @@ a{
     width: 76%;
     margin: auto    ;
     margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 

@@ -125,7 +125,11 @@ const Home = () => {
           </div>
         </div>
       </div>
-
+      <div id="Top">
+  <p>
+    Top Viewed
+  </p>
+</div>
       <Slider data={data} />
       <div id="beauty">
         <img
@@ -133,7 +137,11 @@ const Home = () => {
           alt=""
         />
       </div>
-
+<div id="Recent">
+  <p>
+    Recently Searched
+  </p>
+</div>
       <Slider data={data1} />
 
       <div className="lower">
