@@ -6,131 +6,136 @@ const Home = () => {
   const [data, setdata] = useState([]);
   const [data1, setdata1] = useState([]);
 
-
-  useEffect(()=>{
-    fetch(` https://anthropologie-server-production.up.railway.app/new_clothing`)
-    .then((res)=>res.json())
-    .then((d)=>setdata(d))
+  useEffect(() => {
+    fetch(
+      ` https://anthropologie-server-production.up.railway.app/new_clothing`
+    )
+      .then((res) => res.json())
+      .then((d) => setdata(d));
 
     fetch(` https://stock-server.onrender.com/lamps`)
-    .then((res)=>(res.json()))
-    .then((d)=>(setdata1(d)))
-},[])
-
+      .then((res) => res.json())
+      .then((d) => setdata1(d));
+  }, []);
 
   return (
-    <div className="home-container">
-      <div className="upper">
-        <div className="upleft">
-          <div className="full">
-            <img src="https://anthropologie1.netlify.app/static/media/ShopNew.f530b9d23db4c539ad6f.webp" />
-            <div className="fullBtn">
-              <div className="btn1">
-                <a href="" className="firsta">
-                  Shop New Arrivals
-                </a>
-              </div>
-            </div>
+    <div>
+      <div id="offer">
+        <img
+          src="https://images.ctfassets.net/5de70he6op10/g4Rao5dp4XYh9mHJ31Mku/d4fa659fb2753c2aba8ff20538ba126f/121322_Upto50Off_SelectGifting_HPGSecondaryBanner_LS.jpg?w=2882&q=80&fm=webp"
+          alt=""
+        />
+      </div>
+      <div id="main1">
+        <div id="one">
+          <div>
+            <img
+              src="https://images.ctfassets.net/5de70he6op10/3RVZ7uybOuPPShdGFMqT8v/b5959346a8523c91664dd622f29f0b42/LL_M1b.jpg?w=856&q=80&fm=webp"
+              alt=""
+            />
+
+            <button>
+              <a href="">See What's New</a>
+            </button>
           </div>
-          <div className="mid">
-            <div className="midimage">
-              <img src="https://images.ctfassets.net/5de70he6op10/2cIhOhx0EenQ1hIURAWLK7/7f322ffde6eb24472f9454e18f457027/050222_HPG_2UP_Dresses.jpg?w=856&q=80&fm=webp" />
-              <div className="midBtn">
-                <div className="btn2">
-                  <a href="" className="firsta">
-                    Shop Dresses
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="midimage">
-              <img src="https://anthropologie1.netlify.app/static/media/Wedding.71b246e06bc6f912baf3.webp" />
-              <div className="midBtn">
-                <div className="btn3">
-                  <a href="" className="firsta">
-                    Shop Skirts
-                  </a>
-                </div>
-              </div>
-            </div>
+          <div>
+            <img
+              src="https://images.ctfassets.net/5de70he6op10/2FN1eYunGjb7iEefWXUqzL/9ebe26aa22ab3e675b1f27195af512f6/LL_M1e.jpg?w=856&q=80&fm=webp"
+              alt=""
+            />
+            <button>
+              <a href="">Shop Dresses</a>
+            </button>
           </div>
-          <div className="full">
-            <img src="https://images.ctfassets.net/5de70he6op10/4L4MxwDigk4N40JIiWpXeq/264edf2c0e8af695014b8e0c7ad392dd/050222_HPG_LS_M2.jpg?w=1756&q=80&fm=webp" />
-            <div className="two">
-              <div className="btn4">
-                <a href="" className="firsta">
-                  Raise a glass
-                </a>
-              </div>
-              {/* <div className="btn45">
-                <a href="" className="firsta">
-                  Get the cocktail recipes
-                </a>
-              </div> */}
-            </div>
+          <div>
+            <img
+              src="https://images.ctfassets.net/5de70he6op10/575n66TNKySGUMZHoEPyk1/a8c0be74eb5f6fb558385a19b5cfc120/LL_M1d.jpg?w=856&q=80&fm=webp"
+              alt=""
+            />
+            <button>
+              <a href="">Visit The Gateway Shop</a>
+            </button>
+          </div>
+          <div>
+            <img
+              src="https://images.ctfassets.net/5de70he6op10/7xr3zj76r8uzB0cWfUrKQR/ed4322b5e2ed657b06321686489bb645/LS_M3_Home_Thursday.jpg?w=2640&q=80&fm=webp"
+              alt=""
+            />
+            <button>
+              <a href="">New collection: Party-Ready & Ready to ship</a>
+            </button>
+          </div>
+          <div>
+            <img
+              src="https://images.ctfassets.net/5de70he6op10/1UtgIRn3AHo7yfB3CsbYdw/ced16c178459bc64efcf64a82422808b/LL_M1a.jpg?w=856&q=80&fm=webp"
+              alt=""
+            />
+            <button>
+              <a href="">See what's new</a>
+            </button>
           </div>
         </div>
-        <div className="up-right">
+        <div id="two">
           <div>
-            <img src="https://images.ctfassets.net/5de70he6op10/52bbfxp2kzymVZ339bWds3/8ba1fffd453536dfd180e1f2dccd6d19/050222_HPG_RR_Kitchen_Dining.jpg?w=856&q=80&fm=webp" />
-            <div className="rightBtn">
-              {/* <div className="btn22">
-                <a href="" className="firsta">
-                  shop kitchen & dining
-                </a>
-              </div> */}
-            </div>
+            <img
+              src="https://images.ctfassets.net/5de70he6op10/29ixjcb2lf5i9QNbF0PWJq/6548be3127a3a13e7b4f13e6f029d059/LL_M1c.jpg?w=856&q=80&fm=webp"
+              alt=""
+            />
+            <button>
+              <a href=""> Shop Accessories</a>
+            </button>
           </div>
           <div>
-            <img src="https://images.ctfassets.net/5de70he6op10/21TPmULTbJZbOoJvpDT6hF/cc9481d1d4b7952946247c563f7a742c/050222_HPG_RR_MarkSikes.jpg?w=856&q=80&fm=webp" />
-            <div className="rightBtn">
-              {/* <div className="btn33">
-                <a href="" className="firsta">
-                  shop the Mark D. Sikes collection
-                </a>
-              </div> */}
-            </div>
+            <img
+              src="https://images.ctfassets.net/5de70he6op10/4zCA1PXpVLBKmHSl7Od02R/1b5efdb8c8bb14c2edfa17d49818a4b5/LL_M1f.jpg?w=856&q=80&fm=webp"
+              alt=""
+            />
+            <button>
+              <a href="">Shop Tops</a>
+            </button>
           </div>
           <div>
-            <img src="https://images.ctfassets.net/5de70he6op10/3Fp3TqyVqgSjPQZthY3sFD/9386f17ed897837b78eb461bf903c72a/050222_HPG_RR_Swim.jpg?w=856&q=80&fm=webp" />
-            <div className="rightBtn">
-              {/* <div className="btn44"> */}
-                {/* <a href="" className="firsta">
-                  shop swim
-                </a> */}
-              {/* </div> */}
-            </div>
+            <img
+              src="https://images.ctfassets.net/5de70he6op10/7jPtxFsyU2ZHnQnEMa223v/36cd69a86c3d89e4f0d7ac2ecd2bc76d/RR_Candle.jpg?w=856&q=80&fm=webp"
+              alt=""
+            />
+            <button>
+              <a href="">Shop Candles</a>
+            </button>
+          </div>
+        </div>
+        <div id="three">
+          <div>
+            <img
+              src="https://images.ctfassets.net/5de70he6op10/5sDk11qKleSdvIOvZc35OD/3eee309aaddeabaa38696b5c92e526a2/4th-Row-2UP_Shop-All.jpg?w=1301&q=80&fm=webp"
+              alt=""
+            />
+            <button>
+              <a href="">Shop the look</a>
+            </button>
           </div>
           <div>
-            <img src="https://images.ctfassets.net/5de70he6op10/znSM83ZPZIn5qwRZyUZRR/65849a331166953a2cc1aa24c862afcd/050222_HPG_RR_Bags.jpg?w=856&q=80&fm=webp" />
-            <div className="rightBtn">
-              {/* <div className="btn55">
-                <a href="" className="firsta">
-                  shop bags
-                </a>
-              </div> */}
-            </div>
+            <img
+              src="https://images.ctfassets.net/5de70he6op10/6zS5hd8iXJvVo6XdWajuVz/e1938a3f0f4a368c3a42cefe3ae7f37b/4th-Row-2UP_New-Apparel-_-Accessories.jpg?w=1301&q=80&fm=webp"
+              alt=""
+            />
+            <button>
+              <a href="">Shop clothing & Accessories</a>
+            </button>
           </div>
         </div>
       </div>
-      <div className="middle">
-        <img src="https://images.ctfassets.net/5de70he6op10/7DEijhrVDU6Yq9fW3H4NYu/1ccd807faed448b9ca75bac79944b9c5/050222_HPG_LS_M3.jpg?w=2694&q=80&fm=webp" />
-        <div className="rightBtn">
-          {/* <div className="btn10">
-            <a href="" className="firsta">
-              visit the getaway shop
-            </a>
-          </div> */}
-        </div>
-      </div>
-      <div className="udivslider">
-        <p>You May Also Like</p>
-      </div>
+
       <Slider data={data} />
-      <div className="udivslider">
-        <p>Trending Now</p>
+      <div id="beauty">
+        <img
+          src="https://images.ctfassets.net/5de70he6op10/6smg43UznC0EXEEvtUZOeK/2d857986576d95ecf780716a37fc0b77/LS_M5_BHLDN.jpg?w=2641&q=80&fm=webp"
+          alt=""
+        />
       </div>
+
       <Slider data={data1} />
+
       <div className="lower">
         <div className="exploreData">
           <div className="udiv">
