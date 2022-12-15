@@ -1,7 +1,7 @@
 import "./Clothes.css"
 import axios from "axios"
 import { Link } from "react-router-dom"
-import { Button } from '@chakra-ui/react';
+import { Button,Spinner } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react'
 import {ChevronLeftIcon,ChevronRightIcon} from "@chakra-ui/icons"
 
@@ -117,17 +117,19 @@ const handlePageChange = (changeBy) => {
                     </select>
                     <div style={{marginLeft:"10px"}}>
 
-            <button className='btn'    disabled={page === 1}  onClick={() => handlePageChange(-1)}  ><ChevronLeftIcon  w={10} h={10} /></button>
+            <button    disabled={page === 1}  onClick={() => handlePageChange(-1)}  ><ChevronLeftIcon  w={10} h={10} /></button>
             {page}
-           <button className='btn' disabled={page === 2}   onClick={() => handlePageChange(1)}> <ChevronRightIcon w={10} h={10} /></button>
+           <button  disabled={page === 2}   onClick={() => handlePageChange(1)}> <ChevronRightIcon w={10} h={10} /></button>
         
                     </div>
                  </div>
               </div>
+              {!loading && <Spinner ml="40%" mt="13%" thickness='4px' speed='0.65s' 
+            emptyColor='gray.200'color='blue.500'size='xl'/>}
               <div className="clothData">
                 {cloth.length>0 && cloth.map((data)=>(
                     <div key ={data.id} className="cloth">
-                       <Link to={`/cloth/${data.id}`}> <div className="image"> <img src={data.image} alt=""/></div> </Link>
+                       <Link to={`/sale/${data.id}`}> <div className="image"> <img src={data.image} alt=""/></div> </Link>
                         <div> <h1>{data.name}</h1></div>
                         <div><p>${data.price}</p></div>
                         {data.id%2==0?<div style={{ display: "flex",marginTop:"5px" }}> 

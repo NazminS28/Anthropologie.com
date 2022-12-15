@@ -413,7 +413,7 @@ function Navbar() {
             <Link to=""> Dresses</Link>
           </li>
           <li>
-            <Link to="/cloths"> Clothing</Link>
+            <Link to="/cloth"> Clothing</Link>
           </li>
           <li>
             <Link to="/shoes"> Shoes</Link>
@@ -422,19 +422,19 @@ function Navbar() {
             <Link to=""> Accessories</Link>
           </li>
           <li>
-            <Link to=""> Home & Furniture</Link>
+            <Link to="furniture"> Home & Furniture</Link>
           </li>
           <li>
             <Link to=""> Beauty & Wellness</Link>
           </li>
           <li>
-            <Link to=""> Garden & Outdoor</Link>
+            <Link to="gardens"> Garden & Outdoor</Link>
           </li>
           <li>
             <Link to=""> Weddings</Link>
           </li>
           <li>
-            <Link to=""> Sale</Link>
+            <Link to="sale"> Sale</Link>
           </li>
         </ul>
       </div>
