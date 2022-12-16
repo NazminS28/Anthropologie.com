@@ -13,8 +13,8 @@
   float: left;
 }
 .MultiCarousel .MultiCarousel-inner .item > .card > img {
-  height: 300px;
-  width: 205px;
+  height: 350px;
+  width: 100%;
 }
 .MultiCarousel .MultiCarousel-inner .item > div {
   text-align: center;
@@ -26,14 +26,17 @@
 .MultiCarousel .leftLst,
 .MultiCarousel .rightLst {
   position: absolute;
-  color: #ccc;
+  color: rgb(255, 255, 255);
   top: calc(50% - 55px);
-  background-color: #fdfdf9;
-  border-color: #fdfdf9;
+  background-color: #070707;
+  border-color: #f0f0f0;
   border-style: solid;
   height: 40px;
-  width: 28px;
+  width: 30px;
   font-size: 25px;
+  border-radius: 20%;
+  opacity: 10;
+  
 }
 .MultiCarousel .leftLst {
   left: 0;
