@@ -9,6 +9,7 @@ import style from "./login.module.css";
 import { FaRegEye } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { loginSuccess, loginFailure } from "../redux/action";
+import MenSubNav from "./Dropedown";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -84,7 +85,7 @@ function Navbar() {
           >
             <div className="d-flex  justify-content-center">
               <p className={`${styles.para} ${styles.small}`}>
-                the season's best look are as easy as 1,2,3
+                The season's best look are as easy as 1,2,3
               </p>
               <p className={styles.para}>New: Summer,Naturally</p>
               <a className={styles.link} href="">
@@ -136,7 +137,7 @@ function Navbar() {
 
       <div
         className="d-flex justify-content-end align-items-center py-1"
-        style={{ background: "#f7f6f2" }}
+        style={{ background: "#f7f6f2",border:"1px solid red" }}
       >
         <div className={`mx-5 ${styles.cont}`}>
           <RiGlobeLine fontSize="25px" color="#2e80a1" />{" "}
@@ -401,7 +402,7 @@ function Navbar() {
         </div>
       </div>
 
-      <div className="d-flex" style={{ borderBottom: "1px solid #d3d3d3" }}>
+      {/* <div className="d-flex" style={{ borderBottom: "1px solid #d3d3d3" }}>
         <ul className={styles.lists}>
           <li>
             <Link to=""> New!</Link>
@@ -437,7 +438,8 @@ function Navbar() {
             <Link to="sale"> Sale</Link>
           </li>
         </ul>
-      </div>
+      </div> */}
+      <MenSubNav/>
     </div>
   );
 }

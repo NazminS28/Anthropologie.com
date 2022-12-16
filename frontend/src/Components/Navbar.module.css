@@ -3,7 +3,7 @@
 .para{
     margin-top: 8px;
     margin-right:50px;
-    border:2px solid red;
+    /* border:2px solid red; */
     color: #fff;
     font-size: 15px;
     font-family: 'Heebo', sans-serif;
@@ -42,7 +42,7 @@
 }
 
 .lists{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display:flex;
     align-items: center;
     margin: auto;
