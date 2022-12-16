@@ -11,23 +11,27 @@ import { storeData } from "../utils/localStorage";
 const ClothesSingle = () => {
   const {id}=useParams()
   const toast=useToast()
-
+  console.log(id)
   const[item,setData]=React.useState({});
     useEffect(()=>{
         axios.get(`https://anthropologie-server-production.up.railway.app/new_clothing/${id}`)
-        .then((res)=>setData(res.data))
+        .then((res)=>{
+          setData(res.data);
+          console.log(res.data)
+        })
         .catch((er)=>console.log(er))
 
     },[])
-
+    console.log(item)
     const AddToCart=()=>{
+      console.log(item);
       storeData("Cart",item)
-        toast({
-            title: 'Added',
-            status: 'success',
-            duration: 3000,
-            isClosable: true,
-          })
+        // toast({
+        //     title: 'Added',
+        //     status: 'success',
+        //     duration: 3000,
+        //     isClosable: true,
+        //   })
     }
    
   return (
@@ -72,7 +76,7 @@ const ClothesSingle = () => {
                 
                  <div style={{display:"flex",flexDirection:"column",marginTop:"20px"}}>
                  <h7>Qty*</h7>
-                  <select style={{border:"1px solid black",borderRadius:"10px",width:"80px"}} name="quantity-select" id="qty-select">
+                  <select style={{border:"1px solid black",borderRadius:"10px",width:"80px"}} name="quantity-select" id="qty-select" >
                     <option value="1">1</option>
                     <option value="2">2</option>
                      <option value="3">3</option>
@@ -83,7 +87,7 @@ const ClothesSingle = () => {
 
                  <div>
                <Link to="/cloth">  <Button  mt="25px" color="white" bg="grey">GO BACK</Button>   </Link>
-                 <Button onClick={()=>AddToCart(item.id)} ml="10px" w="250px" mt="25px" color="white" bg="grey" ><Icon as={MdAddShoppingCart} mr="10px" />ADD TO BASKET</Button>
+                 <Button onClick={AddToCart} ml="10px" w="250px" mt="25px" color="white" bg="grey" ><Icon as={MdAddShoppingCart} mr="10px" />ADD TO BASKET</Button>
                  </div>
             </div>
         <div className='moreCloth'>

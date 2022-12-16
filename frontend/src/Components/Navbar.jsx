@@ -8,7 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import style from "./login.module.css";
 import { FaRegEye } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { loginSuccess, loginFailure } from "../redux/action";
+import { loginSuccess, loginFailure } from "../Redux/action";
 
 function Navbar() {
   const navigate = useNavigate();

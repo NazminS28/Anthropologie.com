@@ -11,6 +11,7 @@ import Sale from './Sale';
 import GardensSingle from './GardensSingle';
 import FurnitureSingle from './FurnitureSingle';
 import SaleSingle from './SaleSingle';
+import CartPage from '../Components/CartPage';
 
 const AllRoute  = () => {
   return (
@@ -24,8 +25,7 @@ const AllRoute  = () => {
         <Route path="/gardens/:id"   element={<GardensSingle/>}/>
         <Route path="/furniture/:id"   element={<FurnitureSingle/>}/>
         <Route path="/sale/:id"   element={<SaleSingle/>}/>
-
-
+        <Route path='/cartPage' element={<CartPage/>}/>
         <Route path="/" element={<Homepage />}></Route>
         <Route path="/login" element={<Login />}></Route>
     </Routes>
