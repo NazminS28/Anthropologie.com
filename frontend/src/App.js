@@ -13,7 +13,6 @@ function App() {
     <div className="App">
 
      <CartPage/>
-
        <Navbar/> 
       <AllRoute/>
       <Footer/>
