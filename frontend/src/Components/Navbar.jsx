@@ -9,7 +9,7 @@ import style from "./login.module.css";
 import { FaRegEye } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { loginSuccess, loginFailure } from "../redux/action";
-
+import { getData } from "../utils/localStorage";
 function Navbar() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -20,9 +20,9 @@ function Navbar() {
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    const length = JSON.parse(localStorage.getItem("cartData")) || [];
-    setCart(length);
-  }, []);
+    const cartlength = getData("Cart")
+    setCart(cartlength);
+  }, [cart]);
 
   const gotohome = () => {
     navigate("/");
@@ -79,7 +79,7 @@ function Navbar() {
       >
         <div className="carousel-inner" style={{ height: "40px" }}>
           <div
-            style={{ background: "#5e7678", border: "1px solid red" }}
+            style={{ background:"rgb(29, 59, 102)" }}
             className="carousel-item active "
           >
             <div className="d-flex  justify-content-center">
@@ -121,14 +121,14 @@ function Navbar() {
           type="button"
           data-bs-target="#carouselExampleControls"
           data-bs-slide="next"
-          style={{ right: "-76px" }}
+          style={{marginRight:"0px",width:"50px"}}
         >
           <span
             className="carousel-control-next-icon"
-            style={{ height: "1.5rem" }}
+            style={{ height: "1.5rem"}}
             aria-hidden="true"
           ></span>
-          <span className="visually-hidden">Next</span>
+          <span className="visually-hidden"  >Next</span>
         </button>
       </div>
 
@@ -136,12 +136,12 @@ function Navbar() {
 
       <div
         className="d-flex justify-content-end align-items-center py-1"
-        style={{ background: "#f7f6f2" }}
+        style={{ background: "#f7f6f2",height:"40px" }}
       >
-        <div className={`mx-5 ${styles.cont}`}>
-          <RiGlobeLine fontSize="25px" color="#2e80a1" />{" "}
-          <span className={styles.spans}> English ($) </span>{" "}
-          <MdOutlineKeyboardArrowDown fontSize="10px" color="#2e80a1" />
+        <div style={{display:"flex",flexDirection:"row",marginTop:"0px",marginRight:"15px"}}>
+          <RiGlobeLine fontSize="20px"  color="#2e80a1" />{" "}
+          <span className={styles.spans} > English ($) </span>{" "}
+          <MdOutlineKeyboardArrowDown fontSize="20px" color="#2e80a1" />
         </div>
         <div
           className="modal"
@@ -308,8 +308,8 @@ function Navbar() {
           </div>
         </div>
         {/* <a className="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Open first modal</a> */}
-        <div className={`me-5 ${styles.cont}`}>
-          <AiOutlineUser fontSize="24px" color="#2e80a1" />{" "}
+        <div style={{marginTop:"0px"}}><AiOutlineUser fontSize="24px" color="#2e80a1" /></div>{" "}
+        <div style={{marginTop:"18px"}} className={`me-5 ${styles.cont}`}>
           {isAuth ? (
             <span onClick={handleLogout} className={styles.spans}>
               SignOut
@@ -329,49 +329,34 @@ function Navbar() {
       </div>
 
       {/* Search-area */}
+      <div style={{position:"sticky",  top:"10px",zIndex:"4"}}>
 
-      <div
-        className="d-flex justify-content-between "
-        style={{ borderBottom: "1px solid #d3d3d3",
-        border: "1px solid red"
-       }}
-      >
-        <div className="d-flex  ms-5">
-          <div
-            onClick={gotohome}
-            className="py-3"
-            style={{
-              borderLeft: "1px solid #d3d3d3",
-              borderTop: "3px solid #167a92",
-              border: "1px solid red",
-            }}
-          >
-            <a href="" style={{ padding: "0px 20px" }}>
+      <div style={{display:"flex",justifyContent:"space-between",}}>
+        <div style={{display:"flex",width:"28%",justifyContent:"space-between",marginLeft:"20px"}}>
+          <div onClick={gotohome}  style={{boxShadow:"rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px"}}>
+            <a href="" >
               <img
+              width="95%"
+              style={{padding:"22px"}}
                 src="https://images.ctfassets.net/5de70he6op10/53ZOE4rRqrxcvv0hg2eSLV/a849085e5f600c618132be2475017746/anthro-logo.svg"
                 alt=""
               />
             </a>
           </div>
-          <div
-            className="py-3"
-            style={{
-              borderLeft: "1px solid #d3d3d3",
-              borderRight: "1px solid #d3d3d3",
-              marginLeft: "5px",
-            }}
-          >
-            <a href="" style={{ padding: "0px 20px" }}>
+          <div style={{boxShadow:"rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px"}}>
+            <a href="">
               <img
+               style={{padding:"15px"}}
+               width="120%"
                 src="https://images.ctfassets.net/5de70he6op10/y1O9tEDOvCGliGUvT9RoJ/eb8ab4734c5e3778b8b61da70ed441ac/AL_NewLogo_2.svg"
                 alt=""
               />
             </a>
           </div>
         </div>
-        <div className="d-flex align-items-center me-5 pt-2">
+        <div style={{display:"flex",marginRight:"80px"}}>
           <form action="" className="mx-4">
-            <div className="input-group">
+            <div className="input-group" style={{paddingTop:"7px"}}>
               <input
                 type="text"
                 className=" form-control-lg"
@@ -380,19 +365,20 @@ function Navbar() {
                   fontSize: "14px",
                   outline: "none",
                   border: "1px solid #d3d3d3",
+                 
                 }}
               />
               <button
                 type="submit"
                 className="input-group-text"
-                style={{ background: "white", border: "1px solid #d3d3d3" }}
+                style={{ background: "white" }}
               >
-                <AiOutlineSearch color="#77a0b2" fontSize="23px" />
+                 <AiOutlineSearch color="#77a0b2" fontSize="23px" />
               </button>
             </div>
           </form>
           <Link to="/cart">
-            <BsHandbag color="#2e80a1" fontSize="23px" />{" "}
+           <div style={{paddingTop:"10px"}} > <BsHandbag  color="#2e80a1" fontSize="25px" /></div>{" "}
             <span className="translate-middle badge rounded-pill bg-danger">
               {cart.length == 0 ? 0 : cart.length}
               <span className="visually-hidden">unread messages</span>
@@ -400,9 +386,13 @@ function Navbar() {
           </Link>
         </div>
       </div>
+      <hr/>
 
-      <div className="d-flex" style={{ borderBottom: "1px solid #d3d3d3" }}>
+      <div className="d-flex" style={{ }}>
         <ul className={styles.lists}>
+        <li style={{color:"pink"}}>
+            <Link to=""> Gifts</Link>
+          </li>
           <li>
             <Link to=""> New!</Link>
           </li>
@@ -438,6 +428,8 @@ function Navbar() {
           </li>
         </ul>
       </div>
+      <hr/>
+    </div>
     </div>
   );
 }
