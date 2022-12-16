@@ -4,15 +4,15 @@ import style from './paymentcard.module.css'
 import { useNavigate } from 'react-router-dom'
  
 
-const PaymentCard = () => {
+const Paymentcard = () => {
 //   let d = JSON.parse(localStorage.getItem("cartData")) || [];
+//   const data1 =JSON.parse(localStorage.getItem("data"))
    const [formData, setformData] = useState("")
    const [formData1, setformData1] = useState("");
    const navigate = useNavigate();
-//   const data1 =JSON.parse(localStorage.getItem("data"))
 
   const handleClick = ()=>{
-    navigate("/success")
+    navigate("/verifyotp")
   }
 
   return (<>
@@ -20,18 +20,18 @@ const PaymentCard = () => {
       <div className={style.main}>
         <h5>Payment Method</h5>
         <div style={{border:"0.0005rem  "}}>
-        <div className={style.box5}>
+        <div className={style.div5}>
         <input type="radio" name="radio" />
         <span className={style.card}>Credit Card</span><br />
         <div>
           <div >
             <div >
-              <span className={style.box1}>CARD NUMBER*</span>
-              <input required className={style.box2} type="number" placeholder='xxxx xxxx xxxx xxxx' value={formData1} onChange={(e)=> formData1.length<16 && setformData1(e.target.value)} /> <br />
+              <span className={style.div1}>CARD NUMBER*</span>
+              <input required className={style.div2} type="number" placeholder='xxxx xxxx xxxx xxxx' value={formData1} onChange={(e)=> formData1.length<16 && setformData1(e.target.value)} /> <br />
               <div className={style.dateBox}>
                 <div>
-                  <span className={style.box1}>Expiration Date/Month*</span><br />
-                  <select name="" className={style.box3}>
+                  <span className={style.div1}>Expiration Date/Month*</span><br />
+                  <select name="" className={style.div3}>
                     <option value="--Month--">--Month--</option>
                     <option value="01-January">01-January</option>
                     <option value="02-February">02-February</option>
@@ -48,8 +48,8 @@ const PaymentCard = () => {
                   </select>
                 </div>
                 <div>
-                  <span className={style.box1}>Year*</span><br />
-                  <select name=""  className={style.box3} style={{ width: "35vh" }}>
+                  <span className={style.div1}>Year*</span><br />
+                  <select name=""  className={style.div3} style={{ width: "35vh" }}>
                     <option value="--Year--">--Year--</option>
                     <option value="2022">2022</option>
                     <option value="2023">2023</option>
@@ -65,12 +65,12 @@ const PaymentCard = () => {
                   </select>
                 </div>
                 <div>
-                  <span className={style.box1}>CVV*</span><br />
-                  <input  required className={style.box3} style={{ width: "27vh", borderRadius: "0px" }} type="number" placeholder='***' onChange={(e)=> formData.length<3 && setformData(e.target.value)} value={formData}/>
+                  <span className={style.div1}>CVV*</span><br />
+                  <input  required className={style.div3} style={{ width: "27vh", borderRadius: "0px" }} type="number" placeholder='***' onChange={(e)=> formData.length<3 && setformData(e.target.value)} value={formData}/>
                 </div>
               </div>
             </div>
-            <div className={style.box4}>
+            <div className={style.div4}>
               <h5>Billing Address</h5>
               <p>{"dummy"} {"dummy"} </p>
             <p>{"dummy"}</p>
@@ -82,14 +82,14 @@ const PaymentCard = () => {
           </div>
         </div>
         </div>
-         <div className={style.box5}>
-        <input  required type="radio" name="radio"/><span><img className={style.box6} src="https://www.anthropologie.com/static/v3/images/paypal-logo-ef75c426f33092b001a8a3d1a90d391f.svg" alt="" /></span><br />
+         <div className={style.div5}>
+        <input  required type="radio" name="radio"/><span><img className={style.div6} src="https://www.anthropologie.com/static/v3/images/paypal-logo-ef75c426f33092b001a8a3d1a90d391f.svg" alt="" /></span><br />
         </div>
-        <div className={style.box5}>
-        <input  required type="radio" name="radio"/><span><img className={style.box6} src="https://www.anthropologie.com/static/v3/images/klarna-logo-e1f1797f9730029d90fccb75c4be22cc.svg" alt="" /></span><br />
+        <div className={style.div5}>
+        <input  required type="radio" name="radio"/><span><img className={style.div6} src="https://www.anthropologie.com/static/v3/images/klarna-logo-e1f1797f9730029d90fccb75c4be22cc.svg" alt="" /></span><br />
         </div>
-                 <div className={style.box5}>
-        <input  required type="radio" name="radio"/><span><img className={style.box6} src="https://www.anthropologie.com/static/v3/images/afterpay-logo-7904b549fb7a2a970c606efc9f1e8260.svg" alt="" /></span><br />
+                 <div className={style.div5}>
+        <input  required type="radio" name="radio"/><span><img className={style.div6} src="https://www.anthropologie.com/static/v3/images/afterpay-logo-7904b549fb7a2a970c606efc9f1e8260.svg" alt="" /></span><br />
         </div>
  
         </div>
@@ -106,4 +106,4 @@ const PaymentCard = () => {
   </>)
 }
 
-export default PaymentCard 
+export default Paymentcard 

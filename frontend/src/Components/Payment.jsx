@@ -33,7 +33,8 @@ const Payment = (props) => {
           </button>
           <div >
             <img
-              height="25px"
+              height="10px"
+              width="50px"
               src="https://www.anthropologie.com/static/v3/images/paypal-logo-ef75c426f33092b001a8a3d1a90d391f.svg"
               alt=""
             />

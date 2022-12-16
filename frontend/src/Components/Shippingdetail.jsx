@@ -1,9 +1,9 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import Payment from './Payment'
-import style from './ShipDetail.module.css'
+import style from './shippingdetail.module.css'
 
-const ShipDetail = () => {
+const Shippingdetail = () => {
   const navigate = useNavigate();
   const handleClick = ()=>{
     navigate("/paymentcard")
@@ -13,25 +13,25 @@ const ShipDetail = () => {
    let data = JSON.parse(localStorage.getItem("cartData")) || [];
 
 //   const data1 =JSON.parse(localStorage.getItem("data"))
- 
+ let address=JSON.parse(localStorage.getItem("address"))
   
   return (<>
     <div className={style.container}>
       <div className={style.main}>
-        <h5>Shipping To {"dummy"} {"dummy"}</h5>
-        <div className={style.box}>
-          <div className={style.box1}>
-            <p>{"dummy"}{"dummy"} </p>
-            <p>{"dummy"}</p>
-            <p>{"dummy"}</p>
-            <p>{"dummy"}/ {"dummy"} /{"dummy"}</p>
-            <p>{"dummy"}</p>
-            <p>{"dummy"}</p>
+        <h5>Shipping To {address.fistname} {address.lastname}</h5>
+        <div className={style.div}>
+          <div className={style.div1}>
+            <p style={{marginTop:"0.8rem"}}>{"dummy"}{"dummy"} </p>
+            <p style={{marginTop:"0.8rem"}}>{address.streetaddress}</p>
+            <p style={{marginTop:"0.8rem"}}>{address.province}</p>
+            <p style={{marginTop:"0.8rem"}}>{"dummy"}/ {"dummy"} /{"dummy"}</p>
+            <p style={{marginTop:"0.8rem"}}>{address.phone}</p>
+            <p style={{marginTop:"0.8rem"}}>{address.postcode}</p>
           </div>
-          <div className={style.box2}>
+          <div className={style.div2}>
             <p>Express and Overnight orders placed after 1 PM ET typically ship the next business day.</p>
           </div>
-          <div className={style.box3}>
+          <div className={style.div3}>
             <h6>7-12 business days - $60.00</h6>
             <p>Standard International</p>
             <p>Your order will be delivered by your local postal service and carrier brokerage fees may apply. Duties & taxes will be assessed upon delivery and may be nonrefundable. Order total in checkout is calculated in USD.</p>
@@ -61,4 +61,4 @@ const ShipDetail = () => {
   </>)
 }
 
-export default ShipDetail
+export default Shippingdetail

@@ -1,17 +1,18 @@
-.box {
+.div2 {
   justify-content: center;
   margin: auto;
 }
 
-.head {
-  color: rgb(197, 68, 68);
+.heading1 {
+  color: rgb(211, 212, 214);
 }
 
-.box :nth-child(2) {
-  font-weight: bold;
+.div2 :nth-child(2) {
+  font-weight: 700;
   font-size: 1rem;
 }
-.box :nth-child(3) {
+
+.div2 :nth-child(3) {
   margin: auto;
   width: 80%;
   font-size: 1rem;
@@ -22,9 +23,9 @@
   width: 54%;
   font-size: 0.8rem;
   margin: 1.6rem 0rem 2.2rem 0rem;
-  border: 0.1rem solid rgb(197, 68, 68);
+  border: 0.1rem solid rgb(142, 148, 159);
   font-weight: 800;
-  color: rgb(197, 68, 68);
+  color: rgb(55, 55, 57);
   background-color: snow;
   cursor: pointer;
   border-radius: 1rem;
@@ -32,16 +33,17 @@
 
 .btn:hover {
   color: snow;
-  background: rgb(197, 68, 68);
+  background: rgb(211, 212, 214);
 }
 
 @media (min-width: 0px) and (max-width: 400px) {
   .imag {
     width: 80%;
   }
-  .cont {
+
+  .div1 {
     text-align: center;
-    border: 0.1rem solid rgb(197, 68, 68);
+    border: 0.1rem solid rgb(211, 212, 214);
     border-radius: 0.625rem;
     justify-content: center;
     width: 55%;
@@ -50,13 +52,15 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
 }
+
 @media (min-width: 400px) and (max-width: 768px) {
   .imag {
     width: 80%;
   }
-  .cont {
+
+  .div1 {
     text-align: center;
-    border: 0.1rem solid rgb(197, 68, 68);
+    border: 0.1rem solid rgb(211, 212, 214);
     border-radius: 0.625rem;
     justify-content: center;
     width: 36%;
@@ -65,13 +69,15 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
 }
+
 @media (min-width: 768px) {
   .imag {
     width: 60%;
   }
-  .cont {
+
+  .div1 {
     text-align: center;
-    border: 0.1rem solid rgb(197, 68, 68);
+    border: 0.1rem solid rgb(211, 212, 214);
     border-radius: 0.625rem;
     justify-content: center;
     width: 25%;

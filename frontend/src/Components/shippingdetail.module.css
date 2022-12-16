@@ -58,79 +58,24 @@
   }
   
 
-.box{
-    border: 1px solid;
+.div{
+    border: 0.06rem solid;
    
 }
-.box1{
-    border-bottom : 1px solid;
-    padding: 25px 10px 5px 20px;
-    line-height: 8px;
+.div1{
+    border-bottom : 0.06rem solid;
+    padding: 1.56rem 0.625rem 0.3rem 1.25rem;
+    line-height: 0.5rem;
 }
-.box2{
-    border-bottom : 1px solid;
-    padding: 20px 0px 10px 20px;
-    font-size: 14px;   
+.div2{
+    border-bottom : 0.06rem solid;
+    padding: 1.25rem 0rem 0.625rem 1.25rem;
+    font-size: 0.9rem;   
     font-weight: 400;
 }
-.box3{
-    border-bottom : 1px solid;
-    padding: 17px 0px 10px 20px;
-    font-size: 14px;
+.div3{
+    border-bottom : 0.06rem solid;
+    padding: 1rem 0rem 0.625rem 1.25rem;
+    font-size: 0.9rem;
     background-color:#f7f6f2;
-}
-.box4{
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid;
-    padding: 17px 0px 5px 10px;
-    margin:0px 14px 0px 14px;
-}
- 
-.box4>div{
-    width: 46%;    
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-}
-.box5{
-    display: flex;
-    padding: 17px 0px 10px 12px;
-    
-}
- .box6{
-    padding: 5px 10px 5px 18px;
-    line-height: 8px;
- }
-.box7{
-    width: 46%;    
-    display: flex;
-    justify-content: space-evenly;
-}
-
-
-.itamTags{
-    width:50%;
-}
-.items{
-    width: 50%;
-}
-.itemsPrice{
-    width: 50%;
-    margin-top:-166px;
-}
-.info{
-    margin-left:20px;
-}
-.info>p{
-    font-size: 14px;
-    margin-bottom: 3px;
-    font-family: 'Roboto', sans-serif;
-}
-.info>p>span{
-   color:#5c5c5f;
-}
-.info>p:nth-child(2){
-    margin-bottom: 15px;
-    color: #a5642d;
 }

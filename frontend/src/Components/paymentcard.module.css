@@ -1,7 +1,6 @@
 *{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
 @media (min-width: 0px) and (max-width: 400px) {
     .container {
         display: block;
@@ -21,11 +20,11 @@
         margin: 3% 7%;
         margin-top: 7vh;
     }
-    .box2 {
+    .div2 {
         height: 6vh;
         width: 55vw;
         box-sizing: border-box;
-        border: 1px solid #939395;
+        border: 0.06rem solid #939395;
         padding: 6px;
         outline: none;
         font-size: 1rem;
@@ -49,26 +48,26 @@
         margin: 3% 10%;
         margin-top: 7vh;
     }
-    .box2 {
+    .div2 {
         height: 6vh;
         width: 68vw;
         box-sizing: border-box;
-        border: 1px solid #939395;
+        border: 0.06rem solid #939395;
         padding: 6px;
         outline: none;
         font-size: 1rem;
         margin: 0.25rem 0rem 0.9rem 0rem;
     }
-    .box3 {
+    .div3 {
         height: 6vh;
         width: 10vw;
         box-sizing: border-box;
         padding: 6px;
         outline: none;
         font-size: 1rem;
-        margin: 4px 0px 15px 0px;
-        border: 1px solid #939395;
-        border-radius: 5px;
+        margin: 4px 0rem 15px 0rem;
+        border: 0.06rem solid #939395;
+        border-radius: 0.3rem;
     }
     
   }
@@ -89,27 +88,27 @@
         margin: 3% ;
         margin-top: 7vh;
     }
-    .box2 {
+    .div2 {
         height: 6vh;
         width: 57vw;
         box-sizing: border-box;
-        border: 1px solid #939395;
+        border: 0.06rem solid #939395;
         padding: 0.4rem;
         outline: none;
         font-size: 16px;
-        margin: 4px 0px 15px 0px;
+        margin: 4px 0rem 15px 0rem;
     }
     
-    .box3 {
+    .div3 {
         height: 6vh;
         width: 10vw;
         box-sizing: border-box;
         padding: 6px;
         outline: none;
         font-size: 1rem;
-        margin: 4px 0px 15px 0px;
-        border: 1px solid #939395;
-        border-radius: 5px;
+        margin: 4px 0rem 15px 0rem;
+        border: 0.06rem solid #939395;
+        border-radius: 0.3rem;
     }
     .dateBox{ 
           display:flex;
@@ -120,50 +119,39 @@
   
   
 .card{
-    font-size: 20px;
-    font-weight: 600px;
-    margin:0px 0px 0px 10px;
+    font-size:1.25rem;
+    font-weight: 37rem;
+    margin:0rem 0rem 0rem 0.625rem;
 }
- 
-.box1 {
-    font-size: 14px;
-    margin-bottom: 2px;
-    letter-spacing: 1px;
+.div1 {
+    font-size: 0.9rem;
+    margin-bottom: 0.125rem;
+    letter-spacing: 0.06rem;
     font-weight: 600;
+} 
+.div2:focus {
+    border-radius: 0.3rem;
+    border: 0.125rem solid teal;
 }
- 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+.div3:focus {
+    border: 0.125rem solid teal;
+    border-radius: 0.3rem;
 }
-
-
-.box2:focus {
-    border-radius: 5px;
-    border: 2px solid teal;
+.div4{
+    border  : 0.06rem solid #c3c3c3;
+    padding: 1.5rem 0.625rem 0.3rem1.25rem;
+    line-height: 0.5rem;
 }
-
-
-.box3:focus {
-    border: 2px solid teal;
-    border-radius: 5px;
-}
-.box4{
-    border  : 1px solid #c3c3c3;
-    padding: 25px 10px 5px 20px;
-    line-height: 8px;
-}
-.box4>h5{
-    margin-bottom: 20px;
+.div4>h5{
+    margin-bottom:1.25rem;
  
 }
-.box5{
-    border:1px solid;
+.div5{
+    border: 0.06rem solid;
     padding: 15px; 
 }
-.box6{
-    width: 75px;
-    margin-left: 10px;
+.div6{
+    width: 4.5rem;
+    margin-left: 0.625rem;
 }
 

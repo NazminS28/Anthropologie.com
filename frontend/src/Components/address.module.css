@@ -6,7 +6,7 @@
 
 .font {
   display: flex;
-  margin: auto;
+  margin:1rem auto;
   justify-content: center;
   margin-top: "2.5rem";
   height: "0.5rem";
