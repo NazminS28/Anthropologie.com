@@ -6,7 +6,7 @@
 
 
 #offer{
-    width: 76%;
+    width: 90%;
     margin: auto;
     margin-bottom: 2rem;
     margin-top: 2rem;
@@ -64,7 +64,7 @@
     display: flex;
     gap: 20px;
     /* border:1px solid red; */
-    width: 80%;
+    width: 90%;
     display: flex;
     text-align: center;
     margin: auto;
@@ -161,7 +161,7 @@
 }
 
 #main1{
-    width: 76%;
+    width: 90%;
     z-index: -1;
     /* border: 1px solid blue; */
     margin: auto;
@@ -421,7 +421,7 @@ a{
     height: 100%;
 }
 #beauty{
-    width: 76%;
+    width: 90%;
     margin: auto    ;
     margin-top: 2rem;
     margin-bottom: 2rem;
