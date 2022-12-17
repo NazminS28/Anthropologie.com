@@ -1,104 +1,136 @@
-import "./Clothes.css"
-import axios from 'axios';
-import React from 'react'
-import { useEffect,useState } from 'react';
-import {useParams,Link } from "react-router-dom";
+import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons';
+import { Badge, Box, Button, Center, Circle, Divider, Flex, HStack, Image,Icon, Spacer, Spinner, Stack, Text, VStack, Wrap,useToast } from '@chakra-ui/react';
+import React, { useContext, useEffect, useState } from 'react'
+import { useParams,Link } from 'react-router-dom';
 import {MdAddShoppingCart } from 'react-icons/md';
-import { Button,useToast,Icon } from '@chakra-ui/react';
 import { storeData } from "../utils/localStorage";
-
-
+import axios from 'axios';
 const ClothesSingle = () => {
-  const {id}=useParams()
-  const toast=useToast()
+      
+ 
+ const [data, setData] = useState({})
+const [image,setImage]=useState()
+  
+const { id } = useParams()
+const toast=useToast()
 
-  const[item,setData]=React.useState({});
-    useEffect(()=>{
-        axios.get(`https://anthropologie-server-production.up.railway.app/new_clothing/${id}`)
-        .then((res)=>setData(res.data))
-        .catch((er)=>console.log(er))
+  React.useEffect(()=>{
+    axios.get(`https://anthropologie-server-production.up.railway.app/new_clothing/${id}`)
+    .then((res)=>{setData(res.data)})
+    .catch((error)=>console.log(error))
+  },[])
+ 
+  const AddToCart=()=>{
+    storeData("Cart",data)
+      toast({
+          title: 'Added',
+          status: 'success',
+          duration: 3000,
+          isClosable: true,
+        })
+  }
 
-    },[])
-
-    const AddToCart=()=>{
-      storeData("Cart",item)
-        toast({
-            title: 'Added',
-            status: 'success',
-            duration: 3000,
-            isClosable: true,
-          })
-    }
-   
+ 
   return (
-    <div className='singleCloth'>
-        <div style={{fontSize:"20px",marginTop:"30px"}}>
-        {
-               item.otherimg?.map((colors,i)=>(
-                   <img style={{marginTop:"5px"}} src={item.otherimg[colors,i]} alt="colorsimg"></img>
-                ))
+    <Wrap spacing={10}  justify="center" marginTop="60px"  >
 
-            }
+        <HStack spacing={5} > 
+         
+            <VStack padding={3} >
+
+             <ChevronDownIcon boxSize="30px" color="gray.500"  cursor="pointer" />
+           
+                {data.otherimg?.map((colors,i)=> (
+                  <Image borderRadius={5} alt="colorsimg"   width="70px"
+                  objectFit='cover' src={data.otherimg[colors,i]}
+                  onClick={()=>setImage(data.otherimg[colors,i])}   cursor="pointer" />
+
+              ) )}
+              <ChevronUpIcon boxSize="30px" color="gray.500" cursor="pointer" />  
+            </VStack>
+
+            <Image borderRadius={15} src={image?image:data.image} w="370px" minW="200px" />
+            
+        </HStack>
+
+
+        <VStack width={550} align="revert-layer" spacing={5} marginTop={50}  >
+
+        <Text  fontSize="2xl" color="gray.500" >{data.title}</Text>
+        <div style={{display:"flex",marginTop:"-5px"}} >
+        <Badge  fontSize="18px" variant="outline" width="60px" height="35px" mt="10px" colorScheme="teal">{"4.4  ⭐"}</Badge>
+
+        <HStack alignContent="center">
+        <Text fontWeight="bold" fontSize="4xl" ml="5px" >${data.price}</Text>
+        <Text  as="s" marginLeft={4} fontSize="xl" >${data.price-15}</Text>
+       
+        </HStack>
         </div>
-        <div className='img'><img width={item.id===1?"80%":"100%"}  src={item.image}  alt="" /></div>
-            <div className='details'>
-                <h1>{item.title}</h1>
-             <a href="https://www.anthropologie.com/brands/by-anthropologie" target="_blank"> <p>By Anthropologie</p></a>
-                {item.id%2==0?<div style={{ display: "flex",marginTop:"15px" }}> 
-                          <img  width="3%" src="https://ak1.ostkcdn.com/img/mxc/20200227_rating-star-full.svg" />
-                          <img width="3%" src="https://ak1.ostkcdn.com/img/mxc/20200227_rating-star-full.svg" /> 
-                           <img  width="3%" src="https://ak1.ostkcdn.com/img/mxc/20200227_rating-star-full.svg" />
-                           <img  width="3%" src="https://ak1.ostkcdn.com/img/mxc/20200227_rating-star-full.svg" />
-                           </div>:<div style={{ display: "flex", margintop: "10px" }}>
-                           <img   width="3%" src="https://ak1.ostkcdn.com/img/mxc/20200227_rating-star-full.svg" />
-                            <img  width="3%" src="https://ak1.ostkcdn.com/img/mxc/20200227_rating-star-full.svg" />  
-                            <img  width="3%" src="https://ak1.ostkcdn.com/img/mxc/20200227_rating-star-full.svg" />
-                            <img   width="3%" src="https://ak1.ostkcdn.com/img/mxc/20200227_rating-star-full.svg" />  
-                            <img  width="3%" src="https://ak1.ostkcdn.com/img/mxc/20200227_rating-star-full.svg" />
-                       </div>}
-                <h2>${item.price}</h2>
-                <h4>Or 4 interest-free installments of $45.00 with<span style={{color:"black",fontWeight:"800"}}> Klarna</span> or <span style={{color:"black",fontWeight:"800"}}>Afterpay</span> </h4>
-                 
-                 <div style={{marginTop:"20px"}}>
-                 <h6>size*</h6>
-                    <Button borderRadius="50%">XXS</Button>
-                    <Button borderRadius="50%">XS</Button>
-                    <Button borderRadius="50%">S</Button>
-                    <Button borderRadius="50%">M</Button>
-                    <Button borderRadius="50%">L</Button>
-                    <Button borderRadius="50%">XL</Button>
+         <h2 style={{ marginTop:"0px",fontWeight:"600"}}>inclusive of all taxes</h2>
+        <Divider />
+      
+        <Badge  fontSize="xl" variant="subtle" colorScheme="teal"> ${data.price - 50} for tribe members only </Badge>
+        
+        <Text>TriBe members get an extra discount of ₹20 and FREE shipping.Learn more</Text>
 
-                 </div>
-                
-                 <div style={{display:"flex",flexDirection:"column",marginTop:"20px"}}>
-                 <h7>Qty*</h7>
-                  <select style={{border:"1px solid black",borderRadius:"10px",width:"80px"}} name="quantity-select" id="qty-select">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                     <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="more">more</option>
-                  </select> 
+        <Divider />
+
+        <Text fontWeight="extrabold">SELECT SIZE</Text>
+          
+          <HStack spacing={5}>
+          <Center w='50px' h='50px' fontSize="xl" border="1px solid" color='black'>
+            S
+          </Center>
+          <Center w='50px' h='50px' fontSize="xl" border="1px solid" color='black'>
+            M
+          </Center>
+          <Center w='50px' h='50px' fontSize="xl" border="1px solid" color='black'>
+            L
+          </Center>
+          <Center w='50px' h='50px' fontSize="xl" bg='tomato' color='white'>
+            XL
+          </Center>
+          <Center w='50px' h='50px' fontSize="xl" border="1px solid" color='black'>
+            2XL
+          </Center>
+          <Center w='50px' h='50px' fontSize="xl" border="1px solid" color='black'>
+            3XL
+          </Center>
+         
+          </HStack>
+
+          <Text>Garment:
+
+Chest (in Inch):
+
+44.0
+
+Front Length (in Inch):
+
+30.0
+
+Sleeve Length (in Inch):
+
+25.5</Text>
+ 
+          <Divider />
+
+       <div style={{display:"flex"}}>
+        <Link to="/cloth">  <Button  colorScheme='teal' variant='outline' padding="6px" >GO BACK</Button>   </Link>
+                 <Button   onClick={()=>AddToCart(data.id)} ml="10px" w="230px" padding="6px"   colorScheme='yellow' ><Icon as={MdAddShoppingCart} mr="10px" />ADD TO BASKET</Button>
                  </div>
 
-                 <div>
-               <Link to="/cloth">  <Button  mt="25px" color="white" bg="grey">GO BACK</Button>   </Link>
-                 <Button onClick={()=>AddToCart(item.id)} ml="10px" w="250px" mt="25px" color="white" bg="grey" ><Icon as={MdAddShoppingCart} mr="10px" />ADD TO BASKET</Button>
-                 </div>
-            </div>
-        <div className='moreCloth'>
-        {
-               item.otherimg?.map((colors,i)=>(
-                   <img style={{marginTop:"5px"}} src={item.otherimg[colors,i]} alt="colorsimg"></img>
-                ))
 
-            }
-        </div>
-    </div>
+
+
+        
+
+       </VStack>
+       
+      
+    </Wrap>
   )
 }
 
+
 export default ClothesSingle
-
-
-
