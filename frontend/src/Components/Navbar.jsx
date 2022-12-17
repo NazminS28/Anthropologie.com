@@ -10,6 +10,9 @@ import { FaRegEye } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { loginSuccess, loginFailure } from "../Redux/action";
 import { loginSuccess, loginFailure } from "../redux/action";
+import MenSubNav from "./Dropedown";
+
+
 import { getData } from "../utils/localStorage";
 
 function Navbar() {
@@ -24,7 +27,7 @@ function Navbar() {
   useEffect(() => {
     const cartlength = getData("Cart")
     setCart(cartlength);
-  }, [cart]);
+  }, []);
 
   const gotohome = () => {
     navigate("/");
@@ -86,7 +89,7 @@ function Navbar() {
           >
             <div className="d-flex  justify-content-center">
               <p className={`${styles.para} ${styles.small}`}>
-                the season's best look are as easy as 1,2,3
+                The season's best look are as easy as 1,2,3
               </p>
               <p className={styles.para}>New: Summer,Naturally</p>
               <a className={styles.link} href="">
@@ -94,7 +97,7 @@ function Navbar() {
               </a>
             </div>
           </div>
-          <div style={{ background: "#4b585d" }} className="carousel-item">
+          <div style={{ background: "rgb(175,26,26)" }} className="carousel-item">
             <div className="d-flex  justify-content-center">
               <p className={`${styles.para} ${styles.small}`}>just added!</p>
               <p className={styles.para}>NEW SALE STYLES</p>
@@ -138,8 +141,7 @@ function Navbar() {
 
       <div
         className="d-flex justify-content-end align-items-center py-1"
-        style={{ background: "#f7f6f2",height:"40px" }}
-      >
+        style={{ background: "#f7f6f2",height:"40px" }}>
         <div style={{display:"flex",flexDirection:"row",marginTop:"0px",marginRight:"15px"}}>
           <RiGlobeLine fontSize="20px"  color="#2e80a1" />{" "}
           <span className={styles.spans} > English ($) </span>{" "}
@@ -390,6 +392,8 @@ function Navbar() {
       </div>
       <hr/>
 
+      <div className="d-flex" style={{ borderBottom: "1px solid #d3d3d3" }}>
+
       <div className="d-flex" style={{ }}>
         <ul className={styles.lists}>
         <li style={{color:"pink"}}>
@@ -429,6 +433,8 @@ function Navbar() {
             <Link to="sale"> Sale</Link>
           </li>
         </ul>
+      </div>
+      {/* <MenSubNav/> */}
       </div>
       <hr/>
     </div>
