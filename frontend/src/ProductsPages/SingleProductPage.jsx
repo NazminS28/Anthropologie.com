@@ -5,7 +5,7 @@ import { useParams,Link } from 'react-router-dom';
 import {MdAddShoppingCart } from 'react-icons/md';
 import { storeData } from "../utils/localStorage";
 import axios from 'axios';
-const FurnitureSingle = () => {
+const SingleProductPage = () => {
       
  
  const [data, setData] = useState({})
@@ -15,7 +15,7 @@ const { id } = useParams()
 const toast=useToast()
 
   React.useEffect(()=>{
-    axios.get(`https://stock-server.onrender.com/blankets/${id}`)
+    axios.get(`https://anthropologie-server-production.up.railway.app/new_clothing/${id}`)
     .then((res)=>{setData(res.data)})
     .catch((error)=>console.log(error))
   },[])
@@ -32,7 +32,7 @@ const toast=useToast()
 
  
   return (
-    <Wrap spacing={10}  justify="center" marginTop="60px"  >
+    <Wrap spacing={10}  justify="center"  >
 
         <HStack spacing={5} > 
          
@@ -41,35 +41,36 @@ const toast=useToast()
              <ChevronDownIcon boxSize="30px" color="gray.500"  cursor="pointer" />
            
                 {data.otherimg?.map((colors,i)=> (
+
                   <Image borderRadius={5} alt="colorsimg"   width="70px"
                   objectFit='cover' src={data.otherimg[colors,i]}
                   onClick={()=>setImage(data.otherimg[colors,i])}   cursor="pointer" />
 
               ) )}
+            
               <ChevronUpIcon boxSize="30px" color="gray.500" cursor="pointer" />  
             </VStack>
 
-            <Image borderRadius={15} src={image?image:data.image} w="470px" minW="200px" />
+            <Image borderRadius={15} src={image?image:data.image} w="370px" minW="200px" />
             
         </HStack>
 
 
         <VStack width={550} align="revert-layer" spacing={5} marginTop={50}  >
 
-        <Text  fontSize="2xl" color="gray.500" >{data.name}</Text>
-        <div style={{display:"flex",marginTop:"-5px"}} >
-        <Badge  fontSize="18px" variant="outline" width="60px" height="35px" mt="10px" colorScheme="teal">{"4.4  ⭐"}</Badge>
+        <Text fontSize="30" fontWeight="bold" marginTop={50} color="gray.500"  ></Text>
+        <Text mt="-20px" fontSize="2xl" color="gray.500" >{data.title}</Text>
+        
+        <Badge mt="-20px" fontSize="18px" variant="outline" width="fit-content" colorScheme="teal">{"4.4  ⭐"}</Badge>
 
         <HStack alignContent="center">
-        <Text fontWeight="bold" fontSize="4xl" ml="5px" >${data.price}</Text>
-        <Text  as="s" marginLeft={4} fontSize="xl" >${data.price-15}</Text>
+        <Text mt="-15px" fontWeight="bold" fontSize="4xl" >${data.price}</Text>
        
+        <Text mt="-15px" as="s" marginLeft={4} fontSize="xl" >₹{data.price-15}</Text>
         </HStack>
-        </div>
-         <h2 style={{ marginTop:"0px",fontWeight:"600"}}>inclusive of all taxes</h2>
+         <Text >inclusive of all taxes</Text>
         <Divider />
-      
-        <Badge  fontSize="xl" variant="subtle" colorScheme="teal"> ${data.price - 50} for tribe members only </Badge>
+        <Badge  mt="-30px" fontSize="xl" variant="subtle" colorScheme="teal"> ₹{data.price - 50} for tribe members only </Badge>
         
         <Text>TriBe members get an extra discount of ₹20 and FREE shipping.Learn more</Text>
 
@@ -115,13 +116,14 @@ Sleeve Length (in Inch):
  
           <Divider />
 
-       <div style={{display:"flex"}}>
-        <Link to="/furniture">  <Button  colorScheme='teal' variant='outline' padding="6px" >GO BACK</Button>   </Link>
-                 <Button   onClick={()=>AddToCart(data.id)} ml="10px" w="230px" padding="6px"   colorScheme='yellow' ><Icon as={MdAddShoppingCart} mr="10px" />ADD TO BASKET</Button>
-                 </div>
+        <HStack w="full" mt="-30px" > 
+        <Link to="/cloth">  <Button  mt="25px" color="white" bg="grey">GO BACK</Button>   </Link>
+                 <Button onClick={()=>AddToCart(data.id)} ml="10px" w="250px" mt="25px" color="white" bg="grey" ><Icon as={MdAddShoppingCart} mr="10px" />ADD TO BASKET</Button>
 
 
 
+
+        </HStack>
 
         
 
@@ -133,4 +135,4 @@ Sleeve Length (in Inch):
 }
 
 
-export default FurnitureSingle
+export default SingleProductPage

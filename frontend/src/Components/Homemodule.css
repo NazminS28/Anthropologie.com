@@ -9,7 +9,7 @@
     width: 90%;
     margin: auto;
     margin-bottom: 2rem;
-    margin-top: 2rem;
+    margin-top: 10px;
 
 }
 
@@ -207,6 +207,7 @@
     height: 7%;
     background-color:rgb(151, 148, 148);
     border-radius: 50px;
+
 }
 
 #one>div:nth-child(5)>button{

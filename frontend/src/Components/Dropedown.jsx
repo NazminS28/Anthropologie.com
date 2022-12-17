@@ -10,10 +10,10 @@ import {
   GridItem,
   Spacer,
 } from "@chakra-ui/react";
-
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import styles from "./midnav.module.css";
+
 const MenSubNav = () => {
   const { pathname } = useLocation();
 
@@ -205,71 +205,9 @@ const MenSubNav = () => {
                 </div>
                 <div className={styles.row}></div>
 
-                {/* <div className={styles.row}>
-                  <header style={{ textDecoration: "underline" }}>
-                    SHOP BY BODY FIT
-                  </header>
-                  <div className={styles.midNavImg}>
-                    <div>
-                      <img
-                        src="https://images.asos-media.com/navigation/mw_gbl_clothing_loungewear_flo_114193941_3m?&$n_240w$"
-                        alt=""
-                      />
-                    </div>
-                    <div>
-                      <img
-                        src="https://images.asos-media.com/navigation/mw_gbl_clothing_top_picks_flo_118709147_2m?&$n_240w$"
-                        alt=""
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div className={styles.row}>
-                  <header style={{ textDecoration: "underline" }}>
-                    SHOP BY EDIT
-                  </header>
-                  <div className={styles.shopList}>
-                    <div>
-                      <img
-                        src="https://images.asos-media.com/navigation/mw_gbl_clothing_last_chance_flo_105469462_3m?&$n_240w$"
-                        alt=""
-                      />
-                      <p>Weading</p>
-                    </div>
-                    <div>
-                      <img
-                        src="https://images.asos-media.com/navigation/mw_gbl_clothing_occasionwear_flo_105399272_3m?&$n_240w$"
-                        alt=""
-                      />
-                      <p>Bridal</p>
-                    </div>
-                    <div>
-                      <img
-                        src="https://images.asos-media.com/navigation/mw_gbl_clothing_asos_workwear_flo_1947069_3m_B?&$n_240w$"
-                        alt=""
-                      />
-                      <p>Modest fashion</p>
-                    </div>
-                    <div>
-                      <img
-                        src="https://images.asos-media.com/navigation/mw_clothing_shopbyoccasion_partywearglobal_5wl_1310421?&$n_240w$"
-                        alt=""
-                      />
-                      <p>Last chance</p>
-                    </div>
-                    <div>
-                      <img
-                        src="https://images.asos-media.com/navigation/mw_clothing_wedding_3m_1911570?&$n_240w$"
-                        alt=""
-                      />
-                      <p>Workwear</p>
-                    </div>
-                  </div>
-                </div> */}
               </div>
             </div>
           </li>
-          {/*skin care */}
           <li>
             <Flex
               color={"white"}
@@ -286,9 +224,7 @@ const MenSubNav = () => {
             </Flex>
             <div className={styles.megaBox}>
               <div
-                className={styles.content}
-                // style={{ border: "1px solid red" }}
-              >
+                className={styles.content}>
                 <div className={styles.row}>
                   <header>EYE CARE</header>
                   <ul className={styles.megaLinks}>
