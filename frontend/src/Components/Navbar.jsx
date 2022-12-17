@@ -25,7 +25,7 @@ function Navbar() {
   useEffect(() => {
     const cartlength = getData("Cart")
     setCart(cartlength);
-  }, [cart]);
+  }, []);
 
   const gotohome = () => {
     navigate("/");
@@ -95,7 +95,7 @@ function Navbar() {
               </a>
             </div>
           </div>
-          <div style={{ background: "#4b585d" }} className="carousel-item">
+          <div style={{ background: "rgb(175,26,26)" }} className="carousel-item">
             <div className="d-flex  justify-content-center">
               <p className={`${styles.para} ${styles.small}`}>just added!</p>
               <p className={styles.para}>NEW SALE STYLES</p>
