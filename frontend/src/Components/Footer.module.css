@@ -120,6 +120,7 @@ border-radius:4px;
  .flexdiv>div:first-child{
      display:flex;
      flex-direction: column;
+
      
  }
  .flexdiv>div{

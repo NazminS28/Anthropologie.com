@@ -117,7 +117,7 @@ const CartPage = () => {
             <Text color={'#5C5C5F'} fontSize="13px">Your saved for letter is currently empty. Add items here that you like bu aren't ready to buy.</Text>
           </Box>
         </Box>
-  <Box class="swiper" className={'swiper_down'}>
+  <Box id="swiper" className={'swiper_down'}>
   <Swiper
       // install Swiper modules
       modules={[Navigation, Pagination, Scrollbar, A11y]}
