@@ -7,10 +7,12 @@ import { BsHandbag } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
 import style from "./login.module.css";
 import { FaRegEye } from "react-icons/fa";
+import { SearchIcon } from "@chakra-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
 import { loginSuccess, loginFailure } from "../redux/action";
 import MenSubNav from "./Dropedown";
-
+import axios from "axios"
+import "./Search.css"
 
 import { getData } from "../utils/localStorage";
 function Navbar() {
@@ -21,6 +23,9 @@ function Navbar() {
   const [passtype, setpasstype] = useState(false);
   const isAuth = useSelector((state) => state.isAuth);
   const [cart, setCart] = useState([]);
+
+  const [query,setQuery]=React.useState("")
+  const [data,setData]=React.useState([])
 
   useEffect(() => {
     const cartlength = getData("Cart")
@@ -71,6 +76,28 @@ function Navbar() {
       alert("Login Fail");
     }
   };
+
+  const handleSearch=(e)=>{
+    setQuery(e.target.value)
+    console.log(query)
+}
+console.log(data)
+React.useEffect(()=>{
+
+    if(query){
+    axios.get(`https://anthropologie-server-production.up.railway.app/new_clothing?_limit=3&_page=1`,{
+        params: {
+            q:query
+    }})
+    .then((r)=>{
+        setData(r.data)
+        console.log(r)
+    }).catch((e)=>{
+        console.log(e)
+    })
+}
+},[query])
+
   return (
     <div>
       {/* banner */}
@@ -367,8 +394,8 @@ function Navbar() {
                   fontSize: "14px",
                   outline: "none",
                   border: "1px solid #d3d3d3",
-                 
                 }}
+                onChange={handleSearch}
               />
               <button
                 type="submit"
@@ -388,11 +415,37 @@ function Navbar() {
           </Link>
         </div>
       </div>
+      {data.length>0 && <div style={{width:"18%",borderRadius:"10px",borderTop:"1px solid grey", zIndex:"3", display:"grid" , position:"absolute",left:"72.2%",top:"45px", backgroundColor:"#EDF2F7"}} >
+      <Link to="cloth"> <p  onClick={()=>setData([])}style={{paddingLeft:"5px",fontFamily:"sans-serif",paddingTop:"10px",textDecoration:"underline",cursor:"pointer",  fontWeight:"600",fontSize:"12px"}}>Trending</p></Link> 
+        {data.length>0 && data.map((item)=>(
+               <Link to={`/cloth/${item.id}`}> <p onClick={()=>setData([])} className="searchTitle">{item.title}</p></Link>  
+                    
+             ))}
+             <p  onClick={()=>setData([])} style={{paddingLeft:"5px",fontFamily:"sans-serif",paddingTop:"10px",textDecoration:"underline",cursor:"pointer",  fontWeight:"600",fontSize:"12px"}}>Category</p>
+      <div className="icon">
+      <Link to="/shoes">  <h2  onClick={()=>setData([])} className="iconh"><SearchIcon  fontSize="12px"/> shoes</h2> </Link>
+      <Link to="/furniture"><h2  onClick={()=>setData([])} className="iconh"><SearchIcon fontSize="12px"/> furniture</h2> </Link>
+      <Link  to="gardens"> <h2  onClick={()=>setData([])} className="iconh"><SearchIcon fontSize="12px"/> gardens</h2> </Link>
+      <Link to="/sale"> <h2  onClick={()=>setData([])} className="iconh"><SearchIcon fontSize="12px"/> sale</h2> </Link>
+
+        
+          </div>
+            <h2 style={{marginTop:"10px",paddingLeft:"5px",textDecoration:"underline",fontFamily:"sans-serif", cursor:"pointer",  fontWeight:"600",fontSize:"12px"}}>
+              Product Image
+            </h2>
+            <div className="searchImage" > {data.length>0 && data.map((item)=>(
+               <Link to={`/cloth/${item.id}`}> <img className="searchimg" onClick={()=>setData([])} width="80%" src={item.image} /></Link>  
+                    
+             ))}
+             </div>
+
+</div>}
       <hr/>
+
 
       <div className="d-flex" style={{ borderBottom: "1px solid #d3d3d3" }}>
 
-      <div className="d-flex" style={{ }}>
+      <div className="d-flex" style={{margin:"auto" }}>
         <ul className={styles.lists}>
         <li style={{color:"pink"}}>
             <Link to=""> Gifts</Link>

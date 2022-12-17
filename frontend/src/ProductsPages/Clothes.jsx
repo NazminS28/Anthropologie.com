@@ -71,6 +71,15 @@ const handlePageChange = (changeBy) => {
   }
   return (
     <div>
+       <div className="mainbar">
+        <div><h2>DRESSES</h2><img   src="https://images.ctfassets.net/5de70he6op10/7jG36MSbANK4JfVQhSjRtF/6426c0e02280da606c21e1ccef9fc2e5/Fall_Site_Topper_1_LS.jpg?w=630&q=80&fm=webp" /></div>
+        <div><h2>PANTS</h2><img   src="https://images.ctfassets.net/5de70he6op10/558fy5SfamJIIkBQa3MARu/46185b890b51825214d5f74c4fbc9e8e/Fall_Site_Topper_2_LS.jpg?w=630&q=80&fm=webp" /></div>
+        <div><h2>JEANS</h2><img   src="https://images.ctfassets.net/5de70he6op10/2UDMcMxjbqwmwqFrGqKyz2/e4b6e269594e14ee1d677276b00fe4c4/Fall_Site_Topper_3_LS.jpg?w=630&q=80&fm=webp" /></div>
+        <div><h2>JACKETS </h2><img   src="https://images.ctfassets.net/5de70he6op10/63Bfse1VxFdjpyMH2w6i9m/385bd1c59648fd2373c30fae3ad1dcf9/Fall_Site_Topper_4_LS.jpg?w=630&q=80&fm=webp" /></div>
+        <div><h2>TOPS</h2><img   src="https://images.ctfassets.net/5de70he6op10/5v6fF2cEEnm45LRtoyYqNQ/63f35631b4ff5c6afeb1558a75b13967/Fall_Site_Topper_5_LS.jpg?w=630&q=80&fm=webp" /></div>
+        <div><h2>SWEATERS</h2><img   src="https://images.ctfassets.net/5de70he6op10/3WeHfkSEoOeCAnfmxsaHbr/d512eb559e1766178e269b0b6c229246/Fall_Site_Topper_6_LS.jpg?w=630&q=80&fm=webp" /></div>
+        
+        </div>
         <div className='main'>
             <div className='sidebar'>
                 <p>Browse by:</p>
@@ -101,7 +110,7 @@ const handlePageChange = (changeBy) => {
             </div>
             <div className='product'>
               <div className='product-child1'>
-                <p>Women's Clothing</p>
+                <p>Women's Clothing <span style={{fontSize:"12px",color:"grey",marginLeft:"10px"}}>{cloth.length} products</span></p>
                  <div style={{display:"flex",justifyContent:"space-evenly"}}>
                     
                     <label style={{marginTop:"5px"}}>Sort:</label>

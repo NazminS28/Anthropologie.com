@@ -36,9 +36,14 @@ margin-top: 50px;
     justify-content: space-between;
 }
 .product-child1>p{
-  font-size: 20px;
-  color: black;
-  font-family:Arial, Helvetica, sans-serif;
+    color: var(--text-dark);
+    display: inline-block;
+    font: 2.2rem/1.3 var(--font-body-bold);
+    letter-spacing: .12rem;
+    margin-bottom: 15px;
+    margin-right: 10px;
+    font-weight: 500;
+    font-size: 22px;
 }
 .clothData{
     margin: auto;
@@ -62,8 +67,11 @@ margin-top: 50px;
     transform: scale(1.5) 
 }
 .cloth>div>h1{
-    font-size: 12px;
-    padding-top: 5px;
+    font-size: 14px;
+    padding-top: 8px;
+    color: inherit;
+    letter-spacing: .06rem;
+    margin-bottom: 0;
 }
 .cloth>div>p{
     font-size: 12px;
@@ -203,7 +211,29 @@ background:skyblue;
    .btn>button:hover{
     background: #000;
    }
-
+   .mainbar{
+    width:93%;
+    margin: auto;
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-between;
+    
+}
+.mainbar>div{
+    padding-right: 15px;
+}
+   .mainbar>div>img{
+    position:static;
+    width: 95%;
+   }
+   
+.mainbar>div>h2{
+    position:absolute;
+    padding-left: 62px;
+    padding-top: 28px;
+     font-family: sans-serif;
+color: white;
+}
  @media only screen and (min-width: 250px) and (max-width: 600px) {
 
     .clothData{
