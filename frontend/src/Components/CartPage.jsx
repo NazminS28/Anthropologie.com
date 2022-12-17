@@ -14,14 +14,14 @@ import Cart_single_Item from './Cart_single_Item';
 
 const CartPage = () => {
   const [cartItem,setcartItem] = useState([1,2,3]);
-  const [full,Setfull] = useState([]);
+  const [full,Setfull] = useState([])
   var arr;
   useEffect(()=>{
       //console.log(loadData("Cart"))
       //  arr=loadData("Cart").filter((value)=>{
       //     return value!=null;
       // });
-      // setcartItem(cartItem,...loadData("Cart"))
+       setcartItem(cartItem,...loadData("Cart"))
       
       console.log(cartItem,loadData("Cart"))
   },[])
