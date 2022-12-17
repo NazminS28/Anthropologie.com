@@ -30,6 +30,17 @@
         font-size: 1rem;
         margin: 0.25rem 0rem 0.9rem 0rem;
     }
+    .div3 {
+        height: 6vh;
+        width: 30vw;
+        box-sizing: border-box;
+        padding: 6px;
+        outline: none;
+        font-size: 1rem;
+        margin: 4px 0rem 15px 0rem;
+        border: 0.06rem solid #939395;
+        border-radius: 0.3rem;
+    }
   }
   @media (min-width: 400px) and (max-width: 768px) {
     .container {
@@ -60,7 +71,7 @@
     }
     .div3 {
         height: 6vh;
-        width: 10vw;
+        width: 20vw;
         box-sizing: border-box;
         padding: 6px;
         outline: none;
@@ -140,7 +151,6 @@
 .div4{
     border  : 0.06rem solid #c3c3c3;
     padding: 1.5rem 0.625rem 0.3rem1.25rem;
-    line-height: 0.5rem;
 }
 .div4>h5{
     margin-bottom:1.25rem;

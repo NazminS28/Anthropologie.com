@@ -1,5 +1,5 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Payment from './Payment'
 import style from './shippingdetail.module.css'
 
@@ -18,15 +18,16 @@ const Shippingdetail = () => {
   return (<>
     <div className={style.container}>
       <div className={style.main}>
-        <h5>Shipping To {address.fistname} {address.lastname}</h5>
+        <h5>Shipping To {address.firstname} {address.lastname}</h5>
         <div className={style.div}>
           <div className={style.div1}>
-            <p style={{marginTop:"0.8rem"}}>{"dummy"}{"dummy"} </p>
-            <p style={{marginTop:"0.8rem"}}>{address.streetaddress}</p>
-            <p style={{marginTop:"0.8rem"}}>{address.province}</p>
-            <p style={{marginTop:"0.8rem"}}>{"dummy"}/ {"dummy"} /{"dummy"}</p>
-            <p style={{marginTop:"0.8rem"}}>{address.phone}</p>
-            <p style={{marginTop:"0.8rem"}}>{address.postcode}</p>
+            <p style={{marginTop:"0.8rem"}}>{"Name-   "} {address.firstname} {address.lastname} </p>
+            <p style={{marginTop:"0.8rem"}}>{"Address-   "} {address.streetaddress1?address.streetaddress1:address.streetaddress2}</p>
+            <p style={{marginTop:"0.8rem"}}>{"Province-   "} {address.province}</p>
+            {/* <p style={{marginTop:"0.8rem"}}>{"dummy"}/ {"dummy"} /{"dummy"}</p> */}
+            <p style={{marginTop:"0.8rem"}}>{"Phone no-   "} {address.phone}</p>
+            <p style={{marginTop:"0.8rem",marginBottom:"1rem"}}>{"Pin-   "} {address.postcode}</p>
+          <Link to="/address"><button className={style.btn}>edit</button></Link>
           </div>
           <div className={style.div2}>
             <p>Express and Overnight orders placed after 1 PM ET typically ship the next business day.</p>
@@ -43,9 +44,9 @@ const Shippingdetail = () => {
                 <p className="my-0">Item</p>
             </div>
             <div className={style.itamTags}>
-                <p className="my-0">Item price</p>
-                <p className="my-0">Quantity</p>
-                <p className="my-0">Total Price</p>
+                <p >Item price</p>
+                <p >Quantity</p>
+                <p >Total Price</p>
             </div>
         </div>
         {/* map data here */}

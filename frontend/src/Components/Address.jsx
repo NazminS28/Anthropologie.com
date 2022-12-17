@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Address = () => {
 
-  const [address,setAddress]=useState({country:"",firstname:"",lastname:"",streetaddress1:"",
+  const [address,setAddress]=useState(JSON.parse(localStorage.getItem("address"))||{country:"",firstname:"",lastname:"",streetaddress1:"",
   streetaddress2:"",city:"",province:"",region:"",postcode:"",phone:""})
   const navigate=useNavigate();
   console.log(address)
@@ -84,10 +84,10 @@ const Address = () => {
         </div>
 
         <span className={style.box1}>Street Address*</span><br />
-        <input  name="streetaddress1" value={address.streetaddress1} onChange={(e)=>chageFormData(e)}  required type="text" placeholder='35 character limit,continue below.' className={style.boxs2} />
+        <input  name="streetaddress1" value={address.streetaddress1} onChange={(e)=>chageFormData(e)}  required type="text" placeholder='35 character limit, write address separated by comma.' className={style.boxs2} />
         <br />
         <span className={style.box1}>Address2*</span><br />
-        <input  name="streetaddress2" value={address.streetaddress2} onChange={(e)=>chageFormData(e)}  required type="text" placeholder="Building, Suite or Apartment Number" className={style.boxs2} />
+        <input  name="streetaddress2" value={address.streetaddress2} onChange={(e)=>chageFormData(e)}  required type="text" placeholder="write address separated by comma,Building, Suite or Apartment Number" className={style.boxs2} />
         <br />
         <input required type="checkbox" className={style.box5} /><span className={style.box1}>PO Box</span>
         <br />

@@ -63,9 +63,9 @@
    
 }
 .div1{
+    height: 40vh;
     border-bottom : 0.06rem solid;
     padding: 1.56rem 0.625rem 0.3rem 1.25rem;
-    line-height: 0.5rem;
 }
 .div2{
     border-bottom : 0.06rem solid;
@@ -78,4 +78,17 @@
     padding: 1rem 0rem 0.625rem 1.25rem;
     font-size: 0.9rem;
     background-color:#f7f6f2;
+}
+.btn{
+    margin-top: 1rem 0rem;
+    float: right;
+    border:1px solid;
+    height:4vh;
+    width:4vw;
+    background-color: rgb(211, 212, 214) ;
+    border-radius: 0.2rem;
+}
+.btn:hover{
+    background-color: rgb(196, 245, 245);
+    
 }

@@ -7,12 +7,35 @@ import { useNavigate } from 'react-router-dom'
 const Paymentcard = () => {
 //   let d = JSON.parse(localStorage.getItem("cartData")) || [];
 //   const data1 =JSON.parse(localStorage.getItem("data"))
-   const [formData, setformData] = useState("")
-   const [formData1, setformData1] = useState("");
+   let address=JSON.parse(localStorage.getItem("address"))
+   const carddata={cardnumber:"",expmonth:"",expyear:"",cvv:""};
+   const [carddetails,setcarddetails]=useState(carddata)
+   const [radioBtn,setredioBtn]=useState("")
    const navigate = useNavigate();
-
+   console.log(carddetails)
+  const changeRadioValue=()=>{
+      
+  }
   const handleClick = ()=>{
-    navigate("/verifyotp")
+    if(radioBtn!==""){
+      if(radioBtn==="card"){
+         if((carddetails.cardnumber.length==16)&&(carddetails.expmonth!=="")&&(carddetails.expyear!=="")&&(carddetails.cvv.length==3)){
+          navigate("/verifyotp")
+         }else if(carddetails.cardnumber.length!=16){
+          alert("Enter valid card number")
+         }else if((carddetails.expmonth==""||"--Month--"==carddetails.expmonth)){
+          alert("Select expire month")
+         }else if((carddetails.expyear==""||"--Year--"==carddetails.expyear)){
+          alert("Select expire year")
+         }else if((carddetails.cvv!=3)){
+          alert("Enter a valid cvv")
+         }
+      }else{
+        navigate("/verifyotp")
+      }
+    }else{
+      alert("Please select any payment method.")
+    }
   }
 
   return (<>
@@ -21,17 +44,17 @@ const Paymentcard = () => {
         <h5>Payment Method</h5>
         <div style={{border:"0.0005rem  "}}>
         <div className={style.div5}>
-        <input type="radio" name="radio" />
+        <input type="radio" onChange={()=>{setredioBtn("card");setcarddetails(carddata)}} name="radio" />
         <span className={style.card}>Credit Card</span><br />
         <div>
           <div >
             <div >
               <span className={style.div1}>CARD NUMBER*</span>
-              <input required className={style.div2} type="number" placeholder='xxxx xxxx xxxx xxxx' value={formData1} onChange={(e)=> formData1.length<16 && setformData1(e.target.value)} /> <br />
+              <input required className={style.div2} type="number" placeholder='xxxx xxxx xxxx xxxx' value={carddetails.cardnumber} onChange={(e)=>carddetails.cardnumber.length<16 &&(radioBtn=="card") &&setcarddetails({...carddetails,cardnumber:e.target.value})} /> <br />
               <div className={style.dateBox}>
                 <div>
                   <span className={style.div1}>Expiration Date/Month*</span><br />
-                  <select name="" className={style.div3}>
+                  <select name="" value={carddetails.expmonth} onChange={(e)=>(radioBtn=="card")&&setcarddetails({...carddetails,expmonth:e.target.value})}  className={style.div3}>
                     <option value="--Month--">--Month--</option>
                     <option value="01-January">01-January</option>
                     <option value="02-February">02-February</option>
@@ -49,7 +72,7 @@ const Paymentcard = () => {
                 </div>
                 <div>
                   <span className={style.div1}>Year*</span><br />
-                  <select name=""  className={style.div3} style={{ width: "35vh" }}>
+                  <select name="" value={carddetails.expyear} onChange={(e)=>(radioBtn=="card")&&setcarddetails({...carddetails,expyear:e.target.value})} className={style.div3} style={{ width: "35vh" }}>
                     <option value="--Year--">--Year--</option>
                     <option value="2022">2022</option>
                     <option value="2023">2023</option>
@@ -66,30 +89,30 @@ const Paymentcard = () => {
                 </div>
                 <div>
                   <span className={style.div1}>CVV*</span><br />
-                  <input  required className={style.div3} style={{ width: "27vh", borderRadius: "0px" }} type="number" placeholder='***' onChange={(e)=> formData.length<3 && setformData(e.target.value)} value={formData}/>
+                  <input  required   value={carddetails.cvv} onChange={(e)=>carddetails.cvv.length<3&&(radioBtn=="card")&&setcarddetails({...carddetails,cvv:e.target.value})} className={style.div3} style={{ width: "27vh", borderRadius: "0px" }} type="number" placeholder='***'/>
                 </div>
               </div>
             </div>
             <div className={style.div4}>
               <h5>Billing Address</h5>
-              <p>{"dummy"} {"dummy"} </p>
-            <p>{"dummy"}</p>
-            <p>{"dummy"}</p>
-            <p>{"dummy"} / {"dummy"} / {"dummy"}</p>
-            <p>{"dummy"}</p>
-            <p>{"dummy"}</p>
+              <p style={{marginTop:"0.8rem"}}>{"Name-   "} {address.firstname} {address.lastname} </p>
+            <p style={{marginTop:"0.8rem"}}>{"Address-   "} {address.streetaddress1?address.streetaddress1:address.streetaddress2}</p>
+            <p style={{marginTop:"0.8rem"}}>{"Province-   "} {address.province}</p>
+            {/* <p style={{marginTop:"0.8rem"}}>{"dummy"}/ {"dummy"} /{"dummy"}</p> */}
+            <p style={{marginTop:"0.8rem"}}>{"Phone no-   "} {address.phone}</p>
+            <p style={{marginTop:"0.8rem",marginBottom:"1rem"}}>{"Pin-   "} {address.postcode}</p>
             </div>
           </div>
         </div>
         </div>
          <div className={style.div5}>
-        <input  required type="radio" name="radio"/><span><img className={style.div6} src="https://www.anthropologie.com/static/v3/images/paypal-logo-ef75c426f33092b001a8a3d1a90d391f.svg" alt="" /></span><br />
+        <input  required type="radio" onChange={()=>{setredioBtn("paypal");setcarddetails(carddata)}} name="radio"/><img style={{display:"inline"}} className={style.div6} src="https://www.anthropologie.com/static/v3/images/paypal-logo-ef75c426f33092b001a8a3d1a90d391f.svg" alt="" /><br />
         </div>
         <div className={style.div5}>
-        <input  required type="radio" name="radio"/><span><img className={style.div6} src="https://www.anthropologie.com/static/v3/images/klarna-logo-e1f1797f9730029d90fccb75c4be22cc.svg" alt="" /></span><br />
+        <input  required type="radio" onChange={()=>{setredioBtn("klarna");setcarddetails(carddata)}} name="radio"/><span><img style={{display:"inline"}} className={style.div6} src="https://www.anthropologie.com/static/v3/images/klarna-logo-e1f1797f9730029d90fccb75c4be22cc.svg" alt="" /></span><br />
         </div>
                  <div className={style.div5}>
-        <input  required type="radio" name="radio"/><span><img className={style.div6} src="https://www.anthropologie.com/static/v3/images/afterpay-logo-7904b549fb7a2a970c606efc9f1e8260.svg" alt="" /></span><br />
+        <input  required type="radio" onChange={()=>{setredioBtn("afterpay");setcarddetails(carddata)}}name="radio"/><span><img style={{display:"inline"}} className={style.div6} src="https://www.anthropologie.com/static/v3/images/afterpay-logo-7904b549fb7a2a970c606efc9f1e8260.svg" alt="" /></span><br />
         </div>
  
         </div>

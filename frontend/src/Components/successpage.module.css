@@ -39,6 +39,7 @@
 @media (min-width: 0px) and (max-width: 400px) {
   .imag {
     width: 80%;
+    margin: auto;
   }
 
   .div1 {
@@ -56,6 +57,7 @@
 @media (min-width: 400px) and (max-width: 768px) {
   .imag {
     width: 80%;
+    margin: auto;
   }
 
   .div1 {
@@ -73,6 +75,7 @@
 @media (min-width: 768px) {
   .imag {
     width: 60%;
+    margin: auto;
   }
 
   .div1 {
