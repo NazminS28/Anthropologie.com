@@ -4,9 +4,6 @@ const todoRouter=express.Router()
 
 const {TodoModel}=require("../models/Todo.model")
 
-todoRouter.get("/abc",(req,res)=>{
-    res.send("nazmin")
-})
 
 todoRouter.get("/",async(req,res)=>{
     try{
