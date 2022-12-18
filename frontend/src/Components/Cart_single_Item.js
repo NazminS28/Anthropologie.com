@@ -58,4 +58,4 @@ const Cart_single_Item = ({elem,Update}) => {
   )
 }
 
-export default Cart_single_Item
+export default Cart_single_Item;
