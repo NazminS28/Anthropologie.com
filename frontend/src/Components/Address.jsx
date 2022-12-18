@@ -18,7 +18,7 @@ const Address = () => {
       if((address.country!=="")&&(address.firstname!=="")&&(address.lastname!=="")&&
       ((address.streetaddress1!=="")||(address.streetaddress2!==""))&&
       (address.city!=="")&&(address.province!=="")&&
-      (address.postcode!=="")&&(address.phone!=="")){
+      (address.postcode!=="")&&(address.postcode.length==6)&&(address.phone!=="")&&(address.phone.length==10)){
       localStorage.setItem("address",JSON.stringify(address))
       navigate("/shippingdetail")
   }else if(address.country===""){
@@ -33,10 +33,10 @@ const Address = () => {
     alert("Enter City");
   }else if(address.province===""){
     alert("Enter Province");
-  }else if(address.postcode===""){
-    alert("Enter Postcode");
-  }else if(address.phone===""){
-    alert("Enter Phone");
+  }else if(address.postcode===""||address.postcode.length<6){
+    alert("Enter a Valid Postcode");
+  }else if(address.phone===""||address.phone.length<10){
+    alert("Enter a Valit Phone no");
   }
     },3000)
     
@@ -109,10 +109,10 @@ const Address = () => {
         </div>
 
         <span className={style.box1}>Postcode*</span><br />
-        <input  name="postcode" value={address.postcode} onChange={(e)=>chageFormData(e)}  required type="text" className={style.box7} />
+        <input  name="postcode" value={address.postcode} onChange={(e)=> chageFormData(e)}  required type="text" className={style.box7} />
         <br />
         <span className={style.box1}>Daytime Phone*</span><br />
-        <input  name="phone" value={address.phone} onChange={(e)=>chageFormData(e)}  required type="text" placeholder="Do not enter a country code" className={style.box7} />
+        <input  name="phone" value={address.phone} onChange={(e)=> chageFormData(e)}  required type="text" placeholder="Do not enter a country code" className={style.box7} />
 
         </form>
        

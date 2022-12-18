@@ -57,7 +57,7 @@ const Paymentcard = () => {
           <div >
             <div >
               <span className={style.div1}>CARD NUMBER*</span>
-              <input required className={style.div2} type="number" placeholder='xxxx xxxx xxxx xxxx' value={carddetails.cardnumber} onChange={(e)=>carddetails.cardnumber.length<16 &&(radioBtn=="card") &&setcarddetails({...carddetails,cardnumber:e.target.value})} /> <br />
+              <input required className={style.div2} type="number" placeholder='xxxx xxxx xxxx xxxx' value={carddetails.cardnumber} onChange={(e)=> (radioBtn=="card") &&setcarddetails({...carddetails,cardnumber:e.target.value})} /> <br />
               <div className={style.dateBox}>
                 <div>
                   <span className={style.div1}>Expiration Date/Month*</span><br />
@@ -96,7 +96,7 @@ const Paymentcard = () => {
                 </div>
                 <div>
                   <span className={style.div1}>CVV*</span><br />
-                  <input  required   value={carddetails.cvv} onChange={(e)=>carddetails.cvv.length<3&&(radioBtn=="card")&&setcarddetails({...carddetails,cvv:e.target.value})} className={style.div3} style={{ width: "27vh", borderRadius: "0px" }} type="number" placeholder='***'/>
+                  <input  required   value={carddetails.cvv} onChange={(e)=>(radioBtn=="card")&&setcarddetails({...carddetails,cvv:e.target.value})} className={style.div3} style={{ width: "27vh", borderRadius: "0px" }} type="number" placeholder='***'/>
                 </div>
               </div>
             </div>
