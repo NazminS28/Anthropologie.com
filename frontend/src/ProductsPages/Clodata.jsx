@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 const Clodata = () => {
-  const [data,setData]=useState("")
+  const [data,setData]=useState([])
   const [loading,setLoading]=useState(false)
   const [error,setError]=useState(false)
     useEffect(()=>{
@@ -17,7 +17,7 @@ const Clodata = () => {
         .then((res)=>{
             setData(res)
             setLoading(false)
-            console.log(data)
+            console.log(res)
         })
         .catch((er)=>{
             console.log(er)

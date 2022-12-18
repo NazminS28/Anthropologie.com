@@ -11,7 +11,7 @@ import Clodata from "./ProductsPages/Clodata";
 function App() {
   return (
     <div className="App">
-    {/* <Clodata/> */}
+     <Clodata/> 
        <Navbar/> 
       <AllRoute/>
       <Footer/>
