@@ -81,10 +81,9 @@
 
 
 
-
+/* 
 @media (max-width: 1050px) {
   .hide-div {
-    /* display: none !important; */
     width: 100%;
   }
 
@@ -108,7 +107,6 @@
 
   .para {
     margin-right: 10px;
-    /* border:2px solid red; */
     color: #fff;
     font-size:14px;
     font-family: "Heebo", sans-serif;
@@ -125,7 +123,34 @@
 }
 
 
+} */
+
+
+
+@media (max-width: 1050px) {
+  
+.lists {
+  display: flex;
+  align-items: center;
+  margin: auto;
 }
+.lists > li:nth-child(1) {
+  color: rgb(196, 66, 92);
+}
+.lists > li {
+  list-style: none;
+  font-size: 11px;
+  padding: 8px 8px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+}
+
+
+
+
+
 @media (max-width: 750px) {
   /* .class-input{
       display: none !important;

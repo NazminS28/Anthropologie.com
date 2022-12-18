@@ -6,15 +6,16 @@ import {
   DrawerCloseButton,
   DrawerContent,
   DrawerFooter,
-  DrawerHeader,
   DrawerOverlay,
   Heading,
+  Image,
   Input,
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
 import React from "react";
 import { FaBars } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 import "../Components/respnav.css";
 
@@ -36,28 +37,55 @@ export function RespNav() {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader>Logo will be placed here</DrawerHeader>
+          <Image
+            margin="auto"
+            width="90%"
+            src="https://images.ctfassets.net/5de70he6op10/7q3Z6vJ6UEPFyAPKAFZZxl/1a22eec777828277571187c43306e983/Anthropologie_Holiday_Lockup__1_update.svg"
+          />
 
           <DrawerBody>
-            <Input placeholder="Search here" />
-            <Box textAlign="center" >
-              <Heading marginTop="30px" marginBottom="25px" size="sm">Gift</Heading>
-              <Heading marginBottom="25px" size="sm">New</Heading>
-              <Heading marginBottom="25px" size="sm">Gift for Mom</Heading>
-              <Heading marginBottom="25px" size="sm">Dresses</Heading>
-              <Heading marginBottom="25px" size="sm">Clothing</Heading>
-              <Heading marginBottom="25px" size="sm">Accessories</Heading>
-              <Heading marginBottom="25px" size="sm"> Home & Furniture</Heading>
-              <Heading marginBottom="25px" size="sm"> Beauty & Wellness</Heading>
-              <Heading marginBottom="25px" size="sm">Weddings</Heading>
-
+            <Box textAlign="center">
+              <Heading marginTop="30px" marginBottom="25px" size="sm">
+                <Link to="/">Gift</Link>
+              </Heading>
+              <Heading marginBottom="25px" size="sm">
+                {" "}
+                <Link to="/"> New</Link>
+              </Heading>
+              <Heading marginBottom="25px" size="sm">
+                {" "}
+                <Link> Gift for Mom</Link>
+              </Heading>
+              <Heading marginBottom="25px" size="sm">
+                {" "}
+                <Link to="/cloth"> Dresses</Link>
+              </Heading>
+              <Heading marginBottom="25px" size="sm">
+                {" "}
+                <Link to="/shoes"> Clothing</Link>
+              </Heading>
+              <Heading marginBottom="25px" size="sm">
+                {" "}
+                <Link to="furniture"> Accessories</Link>
+              </Heading>
+              <Heading marginBottom="25px" size="sm">
+                {" "}
+                <Link to="gardens"> Home & Furniture</Link>{" "}
+              </Heading>
+              <Heading marginBottom="25px" size="sm">
+                {" "}
+                <Link> Beauty & Wellness</Link>
+              </Heading>
+              <Heading marginBottom="25px" size="sm">
+                {" "}
+                <Link to="/"> Weddings</Link>
+              </Heading>
+              <Heading marginBottom="25px" size="sm">
+                <Link to="/sale"> Sale</Link>
+              </Heading>
+             
             </Box>
           </DrawerBody>
-          <DrawerFooter>
-            <Button margin="auto" alignItems="center" colorScheme="gray">
-              Search
-            </Button>
-          </DrawerFooter>
         </DrawerContent>
       </Drawer>
     </Box>

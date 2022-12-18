@@ -469,6 +469,12 @@ a{
         
     }
 
+    #offer>img{
+        width:95%;
+        height: 50px;
+        margin: auto;
+    }
+
     }
 
 

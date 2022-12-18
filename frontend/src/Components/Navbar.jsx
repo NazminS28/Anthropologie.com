@@ -497,15 +497,18 @@ function Navbar() {
                   className="input-group-text"
                   style={{ background: "white" }}
                 >
-                  <AiOutlineSearch color="#77a0b2" fontSize="23px" />
+                 
+                  <AiOutlineSearch  color="#77a0b2" fontSize="23px" />
+                  
                 </button>
               </div>
             </form>
-            <Link to="/cart">
+            <Link to="/cartPage">
               <div style={{ paddingTop: "10px" }}>
-                {" "}
+                <Link to="/cartPage">
                 <BsHandbag color="#2e80a1" fontSize="25px" />
-              </div>{" "}
+                </Link>
+              </div>
               <span className="translate-middle badge rounded-pill bg-danger">
                 {cart.length == 0 ? 0 : cart.length}
                 <span className="visually-hidden">unread messages</span>
