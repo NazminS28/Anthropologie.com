@@ -40,7 +40,7 @@ margin-top: 40px;
     margin-top: 15px;
  }
  .emaildiv>div>input{
-width:500px;
+width:80%;
 height:40px;
 font-size:14px;
 border:1px solid #4b5666;
@@ -146,7 +146,7 @@ border-radius:4px;
  }
  .image{ 
      width:90%;
-   margin:0px 60px;
+   margin:auto;
    height:120px;
  }
  .fdiv>hr{
@@ -246,7 +246,7 @@ margin-top:15px;
 }
 .lastdiv{
     display:flex;
-    justify-content:space-between;
+    justify-content:space-around;
     padding-bottom:20px;
 
 }
@@ -276,3 +276,13 @@ margin-top:15px;
      color:#26262c;
      text-decoration: underline;
  }
+
+
+ 
+
+ @media (max-width: 750px) {
+    .lastdiv{
+       display: none;
+     
+     }
+  }
