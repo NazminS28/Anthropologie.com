@@ -9,6 +9,7 @@ import style from "./login.module.css";
 import { FaRegEye } from "react-icons/fa";
 import { SearchIcon } from "@chakra-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
+import { useToast } from "@chakra-ui/react";
 import { loginSuccess, loginFailure } from "../redux/action";
 import MenSubNav from "./Dropedown";
 import axios from "axios"
@@ -17,15 +18,17 @@ import "./Search.css"
 import { getData } from "../utils/localStorage";
 function Navbar() {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const [formData, setformData] = useState({});
-  const [formData1, setformData1] = useState({});
-  const [passtype, setpasstype] = useState(false);
-  const isAuth = useSelector((state) => state.isAuth);
+  const [isAuth,setAuth]=useState(false)
   const [cart, setCart] = useState([]);
-
+const [token,setToken]=useState('')
+  const toast=useToast()
   const [query,setQuery]=React.useState("")
   const [data,setData]=React.useState([])
+
+  const [email,setEmail]=useState("")
+const [password,setPassword]=useState("")
+const [name,setName]=useState("")
+const [admin,setAdmin]=useState(false)
 
   useEffect(() => {
     const cartlength = getData("Cart")
@@ -35,47 +38,98 @@ function Navbar() {
   const gotohome = () => {
     navigate("/");
   };
-  const handleChange = (e) => {
-    const inputName = e.target.name;
-    setformData({ ...formData, [inputName]: e.target.value });
-  };
+ 
   const handleLogout = () => {
-    dispatch(loginFailure());
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (
-      formData.first === undefined ||
-      formData.last === undefined ||
-      formData.email === undefined ||
-      formData.password === undefined
-    ) {
-      alert("Fill all Fields");
-    } else {
-      localStorage.setItem("login", JSON.stringify(formData));
+    if(isAuth){
+   setAuth(!isAuth)
+   setToken("")
     }
   };
-
-  const handleChange1 = (e) => {
-    const inputName1 = e.target.name;
-    setformData1({ ...formData1, [inputName1]: e.target.value });
-  };
-
-  const handleSubmit1 = (e) => {
-    e.preventDefault();
-    let data1 = JSON.parse(localStorage.getItem("login"));
-    if (
-      data1.email === formData1.email &&
-      data1.password === formData1.password1
-    ) {
-      alert("Sign up Successful");
-      dispatch(loginSuccess("4579438"));
-      navigate("/cart");
-    } else {
-      alert("Login Fail");
+  useEffect(()=>{
+    if(token){
+      setAuth(true)
+      navigate("/")
     }
-  };
+    
+  },[token])
+
+
+
+const handleCreate=()=>{
+    const payload={
+        email,
+        password,
+        name
+    }
+
+    fetch("https://ill-ray-cape.cyclic.app/signup",{
+        method:"POST",
+        body:JSON.stringify(payload),
+        headers:{
+            "Content-Type":"application/json"
+        }
+
+    })
+    .then((res)=>res.json())
+    .then((res)=>console.log(res))
+    .catch((er)=>console.log(er))
+}
+
+
+const handleLogin=()=>{
+  const payload={
+      email,
+      password
+  }
+if(email==="admin@ostack.org" && password==="admin@321"){
+setAdmin(true)
+toast({
+  title: 'hello Admin',
+  status: 'success',
+  duration: 3000,
+  isClosable: true,
+  color:"red"
+})
+}
+else{
+  fetch("https://ill-ray-cape.cyclic.app/login",{
+      method:"POST",
+      body:JSON.stringify(payload),
+      headers:{
+          "Content-Type":"application/json"
+      }
+
+  })
+  .then((res)=>res.json())
+  .then((res)=>{
+      console.log(res)
+      localStorage.setItem("psctoken",res.token)
+      if(res.token){
+        setToken(res.token)
+        toast({
+          title: 'Login Successfull',
+          status: 'success',
+          duration: 3000,
+          isClosable: true,
+        })
+      }
+      else{
+        alert(" wrong credentials")
+        toast({
+          title: 'Login fail',
+          status: 'success',
+          duration: 3000,
+          isClosable: true,
+          color:"red"
+        })
+      }
+     
+  })
+  .catch((er)=>console.log(er))
+}
+}
+
+
 
   const handleSearch=(e)=>{
     setQuery(e.target.value)
@@ -190,66 +244,27 @@ React.useEffect(()=>{
               </div>
               <p className="text-center fs-2 mb-auto">Sign Up</p>
               <hr />
-              <p className="text-center text-sm-start-center px-4 mt-auto">
+              <p style={{fontFamily:"monospace",marginTop:"10px",marginLeft:"8px",marginRight:"10px"}}>
                 Sign in so you can save items to your wishlists, track your
                 orders, and check out faster!
               </p>
               <div className="modal-body">
-                <div className={style.style2}>
-                  <form className={style.form} onSubmit={handleSubmit}>
-                    <p>FIRST NAME</p>
-                    <input
-                      required
-                      onChange={handleChange}
-                      name="first"
-                      type="text"
-                      className={style.style3}
-                      style={{ textTransform: "capitalize" }}
-                    />
-                    <p>LAST NAME</p>
-                    <input
-                      required
-                      onChange={handleChange}
-                      name="last"
-                      type="text"
-                      className={style.style3}
-                      style={{ textTransform: "capitalize" }}
-                    />
-                    <p>EMAIL</p>
-                    <input
-                      required
-                      onChange={handleChange}
-                      name="email"
-                      type="email"
-                      className={style.style3}
-                    />
-                    <p>PASSWORD</p>
-                    <input
-                      onChange={handleChange}
-                      name="password"
-                      type={!passtype ? "password" : "text"}
-                      className={style.style3}
-                    />
-                    <FaRegEye
-                      style={{ marginLeft: "-30px", cursor: "pointer" }}
-                      onClick={() => {
-                        setpasstype(!passtype);
-                      }}
-                    ></FaRegEye>
-                    <p></p>
-                    <input
-                      required
-                      type="submit"
-                      data-bs-target="#exampleModalToggle2"
-                      data-bs-toggle="modal"
-                      value="Create"
-                      className={style.style4}
-                    />
-                  </form>
-                </div>
+              <div style={{display:"flex",flexDirection:"column",width:"90%%",margin:"auto",padding:"0.4%",marginTop:"30px",boxShadow:"rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px"}}>
+              <input style={{padding:"7px",border:"1px solid grey"}}  type="text" placeholder='name' value={name}  onChange={(e)=>setName(e.target.value)} />
+        <br/>
+        <input style={{padding:"7px",border:"1px solid grey"}}  type="text" placeholder='email' value={email}  onChange={(e)=>setEmail(e.target.value)} />
+        <br/>
+        <input  style={{padding:"7px",border:"1px solid grey"}} type="password" placeholder='password' value={password}  onChange={(e)=>setPassword(e.target.value)} />
+        <br/>
+        <button style={{padding:"7px",border:"1px solid grey"
+        ,fontFamily:"sans-serif",fontSize:"16px",backgroundColor:"grey",color:"white",fontWeight:"550"}} 
+        onClick={handleCreate}  data-bs-target="#exampleModalToggle2"
+        data-bs-toggle="modal" >Create</button>
+    </div>
+
               </div>
               <div className="modal-footer">
-                <p className="text-center mx-auto">
+                <p className="text-center mx-auto" style={{fontFamily:"sans-serif"}}>
                   If Already Have An Account Click Sign In.
                 </p>
                 <button
@@ -285,41 +300,17 @@ React.useEffect(()=>{
               <p className="text-center fs-1 mb-1">Sign In</p>
               <hr />
               <div className="modal-body">
-                <div className={style.style2}>
-                  <form className={style.form} onSubmit={handleSubmit1}>
-                    <p>EMAIL</p>
-                    <input
-                      required
-                      onChange={handleChange1}
-                      name="email"
-                      type="email"
-                      className={style.style3}
-                    />
-                    <p>PASSWORD</p>
-                    <input
-                      required
-                      onChange={handleChange1}
-                      name="password1"
-                      type={!passtype ? "password" : "text"}
-                      className={style.style3}
-                    />
-                    <FaRegEye
-                      style={{ marginLeft: "-30px", cursor: "pointer" }}
-                      onClick={() => {
-                        setpasstype(!passtype);
-                      }}
-                    ></FaRegEye>
-
-                    <p></p>
-                    <input
-                      data-bs-dismiss="modal"
-                      onSubmit={handleSubmit1}
-                      type="submit"
-                      value="Sign In"
-                      className={style.style4}
-                    />
-                  </form>
-                </div>
+              <div style={{display:"flex",flexDirection:"column",width:"90%%",margin:"auto",padding:"0.4%",marginTop:"30px",boxShadow:"rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px"}}>
+       
+        <input style={{padding:"7px",border:"1px solid grey"}}  type="text" placeholder='email' value={email}  onChange={(e)=>setEmail(e.target.value)} />
+        <br/>
+        <input  style={{padding:"7px",border:"1px solid grey"}} type="password" placeholder='password' value={password}  onChange={(e)=>setPassword(e.target.value)} />
+        <br/>
+        <button style={{padding:"7px",border:"1px solid grey"
+        ,fontFamily:"sans-serif",fontSize:"16px",backgroundColor:"grey",color:"white",fontWeight:"550"}} 
+        onClick={handleLogin}  data-bs-dismiss="modal"
+        >Sign In</button>
+    </div>
               </div>
               <div className="modal-footer">
                 <p className="text-center mx-auto">
@@ -483,6 +474,10 @@ React.useEffect(()=>{
           <li>
             <Link to="sale"> Sale</Link>
           </li>
+          <li>
+          {admin&&<Link to="/admin"><h1 style={{color:"red",fontWeight:"650"}}>Admin</h1></Link>}
+          </li>
+
         </ul>
       </div>
       {/* <MenSubNav/> */}
