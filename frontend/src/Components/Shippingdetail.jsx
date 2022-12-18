@@ -1,12 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Payment from './Payment'
 import style from './shippingdetail.module.css'
 
 const Shippingdetail = () => {
+  const [spinner,setspinner]=useState(false);
   const navigate = useNavigate();
   const handleClick = ()=>{
+    setspinner(true)
+    setTimeout(()=>{
+      setspinner(false)
+    
     navigate("/paymentcard")
+  },3000)
   }
 
 
@@ -56,7 +62,7 @@ const Shippingdetail = () => {
       {/* <!-- ------------------------second part----------------------------------  --> */}
 
       <div className={style.main2}>
-       <Payment  top="200px" handleClick={handleClick} title="Continue to Payment"/>
+       <Payment  top="200px" handleClick={handleClick} spinner={spinner} title="Continue to Payment"/>
       </div>
     </div>
   </>)

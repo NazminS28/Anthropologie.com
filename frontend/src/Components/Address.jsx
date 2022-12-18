@@ -9,31 +9,37 @@ const Address = () => {
   const [address,setAddress]=useState(JSON.parse(localStorage.getItem("address"))||{country:"",firstname:"",lastname:"",streetaddress1:"",
   streetaddress2:"",city:"",province:"",region:"",postcode:"",phone:""})
   const navigate=useNavigate();
+  const [spinner,setspinner]=useState(false);
   console.log(address)
   const handleClick=()=>{
-    if((address.country!=="")&&(address.firstname!=="")&&(address.lastname!=="")&&
-        ((address.streetaddress1!=="")||(address.streetaddress2!==""))&&
-        (address.city!=="")&&(address.province!=="")&&
-        (address.postcode!=="")&&(address.phone!=="")){
-        localStorage.setItem("address",JSON.stringify(address))
-        navigate("/shippingdetail")
-    }else if(address.country===""){
-          alert("select country");
-    }else if(address.firstname===""){
-          alert("Enter First Name");
-    }else if(address.lastname===""){
-          alert("Enter last Name");
-    }else if((address.streetaddress1==="")&&(address.streetaddress2==="")){
-           alert("Enter Address");
-    }else if(address.city===""){
-      alert("Enter City");
-    }else if(address.province===""){
-      alert("Enter Province");
-    }else if(address.postcode===""){
-      alert("Enter Postcode");
-    }else if(address.phone===""){
-      alert("Enter Phone");
-    }
+    setspinner(true)
+    setTimeout(()=>{
+      setspinner(false)
+      if((address.country!=="")&&(address.firstname!=="")&&(address.lastname!=="")&&
+      ((address.streetaddress1!=="")||(address.streetaddress2!==""))&&
+      (address.city!=="")&&(address.province!=="")&&
+      (address.postcode!=="")&&(address.phone!=="")){
+      localStorage.setItem("address",JSON.stringify(address))
+      navigate("/shippingdetail")
+  }else if(address.country===""){
+        alert("select country");
+  }else if(address.firstname===""){
+        alert("Enter First Name");
+  }else if(address.lastname===""){
+        alert("Enter last Name");
+  }else if((address.streetaddress1==="")&&(address.streetaddress2==="")){
+         alert("Enter Address");
+  }else if(address.city===""){
+    alert("Enter City");
+  }else if(address.province===""){
+    alert("Enter Province");
+  }else if(address.postcode===""){
+    alert("Enter Postcode");
+  }else if(address.phone===""){
+    alert("Enter Phone");
+  }
+    },3000)
+    
     // document.getElementById("address-form").submit()
   }
   const chageFormData=(e)=>{
@@ -116,7 +122,7 @@ const Address = () => {
      
       <div className={style.main2}>
         
-       <Payment  top="200px" handleClick={handleClick} title="SHIP TO THIS ADDRESS "/>
+       <Payment  top="200px" handleClick={handleClick} spinner={spinner} title="SHIP TO THIS ADDRESS "/>
       
       </div>
     </div>

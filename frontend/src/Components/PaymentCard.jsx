@@ -10,6 +10,7 @@ const Paymentcard = () => {
    let address=JSON.parse(localStorage.getItem("address"))
    const carddata={cardnumber:"",expmonth:"",expyear:"",cvv:""};
    const [carddetails,setcarddetails]=useState(carddata)
+   const [spinner,setspinner]=useState(false);
    const [radioBtn,setredioBtn]=useState("")
    const navigate = useNavigate();
    console.log(carddetails)
@@ -17,25 +18,31 @@ const Paymentcard = () => {
       
   }
   const handleClick = ()=>{
-    if(radioBtn!==""){
-      if(radioBtn==="card"){
-         if((carddetails.cardnumber.length==16)&&(carddetails.expmonth!=="")&&(carddetails.expyear!=="")&&(carddetails.cvv.length==3)){
+    setspinner(true)
+    setTimeout(()=>{
+      setspinner(false)
+      if(radioBtn!==""){
+        if(radioBtn==="card"){
+           if((carddetails.cardnumber.length==16)&&(carddetails.expmonth!=="")&&(carddetails.expyear!=="")&&(carddetails.cvv.length==3)){
+            navigate("/verifyotp")
+           }else if(carddetails.cardnumber.length!=16){
+            alert("Enter valid card number")
+           }else if((carddetails.expmonth==""||"--Month--"==carddetails.expmonth)){
+            alert("Select expire month")
+           }else if((carddetails.expyear==""||"--Year--"==carddetails.expyear)){
+            alert("Select expire year")
+           }else if((carddetails.cvv!=3)){
+            alert("Enter a valid cvv")
+           }
+        }else{
           navigate("/verifyotp")
-         }else if(carddetails.cardnumber.length!=16){
-          alert("Enter valid card number")
-         }else if((carddetails.expmonth==""||"--Month--"==carddetails.expmonth)){
-          alert("Select expire month")
-         }else if((carddetails.expyear==""||"--Year--"==carddetails.expyear)){
-          alert("Select expire year")
-         }else if((carddetails.cvv!=3)){
-          alert("Enter a valid cvv")
-         }
+        }
       }else{
-        navigate("/verifyotp")
+        alert("Please select any payment method.")
       }
-    }else{
-      alert("Please select any payment method.")
-    }
+   
+  },3000)
+    
   }
 
   return (<>
@@ -121,7 +128,7 @@ const Paymentcard = () => {
       {/* <!-- ------------------------second part----------------------------------  --> */}
 
       <div className={style.main2}>
-       <Payment  top="200px" handleClick={handleClick} title="Order Placed"/>
+       <Payment  top="200px" handleClick={handleClick} spinner={spinner} title="Order Placed"/>
       </div>
     </div>
 
