@@ -2,7 +2,6 @@ import React from 'react'
 import { Routes,Route } from 'react-router-dom'
 import ClothesSingle from './ClothesSingle'
 import Homepage from "../pages/Homepage";
-import Login from "../Components/Login";
 import Clothes from './Clothes';
 import Shoes from './Shoes';
 import Furniture from './Furniture';
@@ -12,6 +11,9 @@ import GardensSingle from './GardensSingle';
 import FurnitureSingle from './FurnitureSingle';
 import SaleSingle from './SaleSingle';
 import CartPage from '../Components/CartPage';
+
+import AdminAdd from '../AdminPage/AdminAdd';
+
 
 const AllRoute  = () => {
   return (
@@ -26,8 +28,9 @@ const AllRoute  = () => {
         <Route path="/furniture/:id"   element={<FurnitureSingle/>}/>
         <Route path="/sale/:id"   element={<SaleSingle/>}/>
         <Route path='/cartPage' element={<CartPage/>}/>
+
         <Route path="/" element={<Homepage />}></Route>
-        <Route path="/login" element={<Login />}></Route>
+        <Route path="/admin" element={<AdminAdd />}></Route>
     </Routes>
   )
 }

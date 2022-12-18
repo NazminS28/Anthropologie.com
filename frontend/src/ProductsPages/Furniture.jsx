@@ -101,7 +101,7 @@ const handlePageChange = (changeBy) => {
             </div>
             <div className='product'>
               <div className='product-child1'>
-                <p>Home & Furniture</p>
+                <p>Home & Furniture <span style={{fontSize:"12px",color:"grey",marginLeft:"10px"}}>{cloth.length} products</span></p>
                  <div style={{display:"flex",justifyContent:"space-evenly"}}>
                     
                     <label style={{marginTop:"5px"}}>Sort:</label>

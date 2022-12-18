@@ -56,7 +56,7 @@ const toast=useToast()
     }
 }
   return (
-    <div style={{ marginTop: "140px"}}>
+    <div style={{ marginTop: "30px"}}>
       <h1 style={{fontWeight:"700",fontSize:"30px",fontFamily:"sans-serif",textAlign:"center"}}>Add Products</h1>
     <div className='admin_add'>
         <select value={value}  onChange={(e)=>setValue(e.target.value)} style={{width:"100%",padding:"6px",fontSize:"15px"}} >

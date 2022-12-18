@@ -39,6 +39,15 @@ return 0
     
   return (
     <div>
+       <div className="mainbar">
+        <div><img   src="https://images.ctfassets.net/5de70he6op10/2fzUgZMXWUPrC84rgBxaSY/9193a3ee06dc32835f6707ca130b9999/5_Shoe_Topper.jpg?w=630&q=80&fm=webp" /></div>
+        <div><img   src="https://images.ctfassets.net/5de70he6op10/2qYKuPxJVyKb7n60A4xu6T/25a590f8599449559c65b0daec39eb8b/6_Shoe_Topper.jpg?w=630&q=80&fm=webp" /></div>
+        <div><img   src="https://images.ctfassets.net/5de70he6op10/4mYgaZvDjiMO0ogglhyGvJ/46fdad07bb955e7ecbb14acc7e045581/7_Shoe_Topper.jpg?w=630&q=80&fm=webp" /></div>
+        <div><img   src="https://images.ctfassets.net/5de70he6op10/3iNdIE0LZbZPDYuR6nD8Ez/03c286802421cd10b65eed004a59c0a3/8_Shoe_Topper.jpg?w=630&q=80&fm=webp" /></div>
+        <div><img   src="https://images.ctfassets.net/5de70he6op10/5irHE9rTk9tLXZbUCxtNow/681f9fe4f6d062d8cff812f913c1ca93/9_Shoe_Topper.jpg?w=630&q=80&fm=webp" /></div>
+        <div><img   src="https://images.ctfassets.net/5de70he6op10/61AjzQ71WgOAQfYooxFzaQ/59d06b09fb9334e99c0db1f02f5fb16c/10-11_Shoe_Topper.jpg?w=630&q=80&fm=webp" /></div>
+        
+        </div>
         <div className='main'>
             <div className='sidebar'>
                 <p>Browse by:</p>
@@ -69,7 +78,7 @@ return 0
             </div>
             <div className='product'>
               <div className='product-child1'>
-                <p>Women's Shoes</p>
+                <p>Women's Shoes <span style={{fontSize:"12px",color:"grey",marginLeft:"10px"}}>{cloth.length} products</span></p>
                  <div style={{display:"flex",justifyContent:"space-evenly"}}>
                     
                     <label style={{marginTop:"5px"}}>Sort:</label>

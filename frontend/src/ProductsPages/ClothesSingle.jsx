@@ -16,19 +16,36 @@ const toast=useToast()
 
   React.useEffect(()=>{
     axios.get(`https://anthropologie-server-production.up.railway.app/new_clothing/${id}`)
-    .then((res)=>{setData(res.data)})
+    .then((res)=>{setData(res.data)
+    console.log(res.data)})
     .catch((error)=>console.log(error))
   },[])
  
+
+
+
   const AddToCart=()=>{
-    storeData("Cart",data)
+  
+     fetch("https://ill-ray-cape.cyclic.app/todo/add",{
+            method:"POST",
+           body:JSON.stringify(data),
+           headers:{
+            "Content-Type":"application/json",
+            "Authorization":`Bearer ${localStorage.getItem("psctoken")}`
+
+        }})
+        .then((res)=>res.json())
+        .then((res)=>console.log(res))
+        .catch((er)=>console.log(er))
       toast({
           title: 'Added',
           status: 'success',
           duration: 3000,
           isClosable: true,
         })
-  }
+        console.log(data)
+      }
+  
 
  
   return (

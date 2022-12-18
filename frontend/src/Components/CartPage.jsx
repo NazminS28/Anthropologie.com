@@ -13,17 +13,50 @@ import { loadData } from '../utils/localStorage';
 import Cart_single_Item from './Cart_single_Item';
 
 const CartPage = () => {
-  const [cartItem,setcartItem] = useState([1,2,3]);
+  const [cartItem,setcartItem] = useState([]);
   const [full,Setfull] = useState([])
-  var arr;
+  const [data,setData]=useState("")
+  const [loading,setLoading]=useState(false)
+  const [error,setError]=useState(false)
+    useEffect(()=>{
+        setLoading(true)
+        fetch("https://ill-ray-cape.cyclic.app/todo",{
+            headers:{
+            "Authorization":`Bearer ${localStorage.getItem("psctoken")}`
+            }
+        })
+        .then((res)=>res.json())
+        .then((res)=>{
+            setData(res)
+            setLoading(false)
+            console.log(data)
+        })
+        .catch((er)=>{
+            console.log(er)
+          setError(true)
+          setLoading(false)
+        })
+    },[])
+   
+   
+const handleSubmit=(todoID)=>{
+fetch(`https://ill-ray-cape.cyclic.app/todo/delete/${todoID}`,{
+    method:"DELETE",
+    headers:{
+        "Authorization":`Bearer ${localStorage.getItem("psctoken")}`
+    }
+})
+
+
+}
   useEffect(()=>{
       //console.log(loadData("Cart"))
       //  arr=loadData("Cart").filter((value)=>{
       //     return value!=null;
       // });
-       setcartItem(cartItem,...loadData("Cart"))
+       //setcartItem(cartItem,...loadData("Cart"))
       
-      console.log(cartItem,loadData("Cart"))
+      //console.log(cartItem,loadData("Cart"))
   },[])
   function Update(value) {
     Setfull([...full,value]);
