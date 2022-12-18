@@ -16,6 +16,7 @@ import axios from "axios";
 import "./Search.css";
 
 import { getData } from "../utils/localStorage";
+
 function Navbar() {
   const navigate = useNavigate();
   const [isAuth, setAuth] = useState(false);
