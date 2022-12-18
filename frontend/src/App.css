@@ -35,3 +35,30 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+
+@media (min-width: 850px) {
+  .resp-nav{
+    display: none;
+  } 
+  .main-nav{
+    z-index: 10;
+    display: block;
+    position:sticky;
+    top:auto;
+  }
+}
+
+@media (max-width: 850px) {
+  /* .main-nav{
+    display: none;
+  }  */
+  .resp-nav{
+    z-index: 10;
+    /* display: block; */
+    position:absolute;
+    top:30px;
+  }
+}
