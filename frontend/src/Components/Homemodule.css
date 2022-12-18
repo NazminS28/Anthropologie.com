@@ -430,3 +430,92 @@ a{
 
 
 
+
+@media (max-width: 1050px) {
+    #main1{  
+        width: 55%;     
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        /* gap: 30px 0px; */
+    }
+    #main1 button{
+        display: none;
+    }
+
+    #main1 img{
+        border-radius: 20px;
+    }
+    #three > div {
+        margin-right: 10px;
+    }
+
+    .exInfo{
+        width: 80%;     
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        /* gap: 30px 0px; */
+    }
+
+    .exInfo>div{
+        width: 100%;
+        
+    }
+
+
+    .exInfo img{
+        height: 400px;
+        border-radius: 20px;
+
+        
+    }
+
+    #offer>img{
+        width:95%;
+        height: 50px;
+        margin: auto;
+    }
+
+    }
+
+
+
+
+
+  @media (max-width: 750px) {
+    #main1{  
+        width: 30%;     
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        /* gap: 30px 0px; */
+    }
+    #main1 button{
+        display: none;
+    }
+
+    #main1 img{
+        border-radius: 20px;
+    }
+    #three > div {
+        margin-right: 10px;
+    }
+  
+    .exInfo{
+        width: 50%;     
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        /* gap: 30px 0px; */
+    }
+
+    .exInfo>div{
+        width: 100%;
+        
+    }
+
+
+    .exInfo img{
+        height: 400px;
+        border-radius: 20px;
+
+        
+    }
+  }

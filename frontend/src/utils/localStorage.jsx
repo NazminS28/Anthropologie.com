@@ -26,9 +26,10 @@ function present(arr, value) {
   
   const storeData = (key, value) => {
     let data = JSON.parse(localStorage.getItem(key)) || [];
-    if (!present(data, value)) {
+    console.log(data);
+    // if (!present(data, value)) {
       localStorage.setItem(key, JSON.stringify([...data, value]));
-    }
+    // }
   };
   
   const getData = (key) => {

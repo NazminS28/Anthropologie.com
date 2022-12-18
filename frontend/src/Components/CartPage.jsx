@@ -1,17 +1,68 @@
 import React from 'react'
 import { Box, Grid, GridItem,Text,Button, Stack, Select, Heading, Link,Image, SimpleGrid } from '@chakra-ui/react'
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react'
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
 import "./CartPage.css";
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { loadData } from '../utils/localStorage';
+import Cart_single_Item from './Cart_single_Item';
 
 const CartPage = () => {
+  const [cartItem,setcartItem] = useState([]);
+  const [full,Setfull] = useState([])
+  const [data,setData]=useState("")
+  const [loading,setLoading]=useState(false)
+  const [error,setError]=useState(false)
+    useEffect(()=>{
+        setLoading(true)
+        fetch("https://ill-ray-cape.cyclic.app/todo",{
+            headers:{
+            "Authorization":`Bearer ${localStorage.getItem("psctoken")}`
+            }
+        })
+        .then((res)=>res.json())
+        .then((res)=>{
+            setData(res)
+            setLoading(false)
+            console.log(data)
+        })
+        .catch((er)=>{
+            console.log(er)
+          setError(true)
+          setLoading(false)
+        })
+    },[])
+   
+   
+const handleSubmit=(todoID)=>{
+fetch(`https://ill-ray-cape.cyclic.app/todo/delete/${todoID}`,{
+    method:"DELETE",
+    headers:{
+        "Authorization":`Bearer ${localStorage.getItem("psctoken")}`
+    }
+})
+
+
+}
+  useEffect(()=>{
+      //console.log(loadData("Cart"))
+      //  arr=loadData("Cart").filter((value)=>{
+      //     return value!=null;
+      // });
+       //setcartItem(cartItem,...loadData("Cart"))
+      
+      //console.log(cartItem,loadData("Cart"))
+  },[])
+  function Update(value) {
+    Setfull([...full,value]);
+    console.log(full);
+  }
   return (
        <Box >
         <Box  className="main_div">
@@ -26,7 +77,7 @@ const CartPage = () => {
     templateColumns="1.3fr 2fr 3fr"
     columnGap={'20px'}
     rowGap="10px"
-    >
+    >    
           <GridItem></GridItem>
           <GridItem>
             <Text>Item</Text>
@@ -41,46 +92,11 @@ const CartPage = () => {
           </GridItem>
          </Grid>
         </Box>
-        <Box display={'flex'}>
-         <Grid h='auto'
-    templateRows='auto'
-    templateColumns="1.3fr 2fr 3fr"
-    columnGap={'20px'}
-    rowGap="10px">
-          <GridItem> 
-            <Image src='https://images.urbndata.com/is/image/Anthropologie/45447376AA_045_b?fit=constrain&fmt=webp&hei=195&qlt=80&wid=130' w={'100%'}></Image>
-          </GridItem>
-          <GridItem>
-            <Box>
-              <Text mb={'5px'} fontSize={'15px'}>Lola Cruz metallic Wedge Heels</Text>
-              <Text  mb={'5px'} fontSize={'15px'}>Style <Text as={'span'}  color='gray'>#79422903</Text></Text>
-              <Text  mb={'5px'} fontSize={'15px'}>Style <Text as={'span'}  color='gray'>#79422903</Text></Text>
-              <Text  mb={'5px'} fontSize={'15px'}>Style <Text as={'span'} color='gray' >#79422903</Text></Text>
-              <Link color={'#167A92'} fontSize={'15px'}>Edit</Link>
-            </Box>
-          </GridItem>
-          <GridItem>
-            <Box>
-            <Box display={'flex'} justifyContent={'space-between'} m={'0px 10px'}  h={'150px'}>
-             <Text>$260</Text>
-             <Stack spacing={3} >
-  <select style={{'height':"45px",width:"50px"}} >
-    <option value='option1'>2</option>
-  <option value='option2'>3</option>
-  <option value='option3'>4</option>
-    </select>
-</Stack>
-             <Text>$520</Text>
-            </Box>
-            <Box display={'flex'} justifyContent={'flex-end'} m={'10px'}>
-              <Link mr={'15px'} textDecoration={'underline'} fontSize="13px" color={'#167A92'}>Remove</Link>
-              <Link  ml={'15px'} textDecoration={'underline'} fontSize="13px" color={'#167A92'}>Save for Later</Link>
-            </Box>
-            </Box>
-          </GridItem>
-         </Grid>
-        </Box>
-        
+             
+               {loadData("Cart").map((elem)=>(
+                   <Cart_single_Item elem={elem} Update={Update}/>
+              ))} 
+             
         </Box>
         <Box  className={'top-left'}>
           <Box ml={'60px'} >

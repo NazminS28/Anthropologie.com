@@ -35,20 +35,27 @@
     transform: rotate(360deg);
   }
 }
-/* .resp-nav{
-  display: none;
-} */
 
 
-/* @media (max-width: 900px) {
-  .main-nav{
+
+
+
+
+@media (min-width: 850px) {
+  .resp-nav{
     display: none;
   } 
-  .resp-nav{
+  .main-nav{
     z-index: 10;
     display: block;
-    position:sticky;
     top:auto;
   }
+}
 
-} */
+@media (max-width: 850px) {
+  .resp-nav{
+    position:absolute;
+    top:30px;
+  }
+}
+
