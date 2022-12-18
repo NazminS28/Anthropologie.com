@@ -1,7 +1,8 @@
 import React from 'react'
 import { Box, Grid, GridItem,Text,Button, Stack, Select, Heading, Link,Image, SimpleGrid } from '@chakra-ui/react'
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react'
+
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination'
@@ -12,12 +13,24 @@ import { useState } from 'react';
 import { loadData } from '../utils/localStorage';
 import Cart_single_Item from './Cart_single_Item';
 
+
 const CartPage = () => {
   const [cartItem,setcartItem] = useState([]);
   const [full,Setfull] = useState([])
-  const [data,setData]=useState("")
+  const [data,setData]=useState([])
   const [loading,setLoading]=useState(false)
-  const [error,setError]=useState(false)
+  const [error,setError]=useState(false);
+  const [sumo,setsum] = useState(1)
+  const handleSubmit=(todoID)=>{
+    fetch(`https://ill-ray-cape.cyclic.app/todo/delete/${todoID}`,{
+        method:"DELETE",
+        headers:{
+            "Authorization":`Bearer ${localStorage.getItem("psctoken")}`
+        }
+    })
+    
+    
+    }
     useEffect(()=>{
         setLoading(true)
         fetch("https://ill-ray-cape.cyclic.app/todo",{
@@ -29,38 +42,26 @@ const CartPage = () => {
         .then((res)=>{
             setData(res)
             setLoading(false)
-            console.log(data)
+            console.log(res)
         })
         .catch((er)=>{
             console.log(er)
           setError(true)
           setLoading(false)
         })
-    },[])
-   
-   
-const handleSubmit=(todoID)=>{
-fetch(`https://ill-ray-cape.cyclic.app/todo/delete/${todoID}`,{
-    method:"DELETE",
-    headers:{
-        "Authorization":`Bearer ${localStorage.getItem("psctoken")}`
-    }
-})
-
-
-}
-  useEffect(()=>{
-      //console.log(loadData("Cart"))
-      //  arr=loadData("Cart").filter((value)=>{
-      //     return value!=null;
-      // });
-       //setcartItem(cartItem,...loadData("Cart"))
-      
-      //console.log(cartItem,loadData("Cart"))
-  },[])
+        const getAverageAge = () => {
+          let sum = 0
+          for (let i = 0; i < data.length; i++) {
+            sum += data[i].price*data[i].quantity;
+          }
+          setsum(sum);
+        }
+        getAverageAge()
+    },[handleSubmit])
+    
   function Update(value) {
-    Setfull([...full,value]);
-    console.log(full);
+    // Setfull([...full,value]);
+    // console.log(full);
   }
   return (
        <Box >
@@ -92,7 +93,7 @@ fetch(`https://ill-ray-cape.cyclic.app/todo/delete/${todoID}`,{
          </Grid>
         </Box>
              
-               {loadData("Cart").map((elem)=>(
+               {data.map((elem)=>(
                    <Cart_single_Item elem={elem} Update={Update}/>
               ))} 
              
@@ -106,19 +107,19 @@ fetch(`https://ill-ray-cape.cyclic.app/todo/delete/${todoID}`,{
           <Box m={'20px'}>
            <Box display={'flex'} justifyContent="space-between" fontSize={'13px'}>
             <Text>Subtotal</Text>
-            <Text>$520</Text>
+            <Text>${sumo}</Text>
+           </Box>
+           <Box display={'flex'} justifyContent="space-between" fontSize={'13px'}>
+            <Text>Shipping</Text>
+            <Text>TBD</Text>
            </Box>
            <Box display={'flex'} justifyContent="space-between"  fontSize={'13px'}>
-            <Text>Subtotal</Text>
-            <Text>$520</Text>
+            <Text>Estimated Tax</Text>
+            <Text>$0</Text>
            </Box>
-           <Box display={'flex'} justifyContent="space-between" fontSize={'13px'}>
-            <Text>Subtotal</Text>
-            <Text>$520</Text>
-           </Box>
-           <Box display={'flex'} justifyContent="space-between" fontSize={'13px'}>
-            <Text>Subtotal</Text>
-            <Text>$520</Text>
+           <Box display={'flex'} justifyContent="space-between" fontSize={'15px'}>
+            <Text fontWeight={'bold'} color={'black'}>Total</Text>
+            <Text>${sumo}</Text>
            </Box>
            <br />
            <Box fontSize={'11px'}>
@@ -180,61 +181,71 @@ fetch(`https://ill-ray-cape.cyclic.app/todo/delete/${todoID}`,{
     >
       <SwiperSlide>
       <Box >
-            <Image src='https://images.urbndata.com/is/image/Anthropologie/54684998_011_b2?$an-category$&qlt=80&fit=constrain' w='129px'></Image>
-            <Text>Seychelles Neve Heels</Text>
+            <Image src='https://images.urbndata.com/is/image/Anthropologie/4114345140006_066_b2?$an-category$&qlt=80&fit=constrain' w='129px'></Image>
+            <Text>
+                    Pilcro Cropped Eyelash Sweater
+                </Text>
         </Box>
       </SwiperSlide>
       <SwiperSlide>
         <Box >
-            <Image src='https://images.urbndata.com/is/image/Anthropologie/54684998_011_b2?$an-category$&qlt=80&fit=constrain' w='129px'></Image>
+            <Image src='https://images.urbndata.com/is/image/Anthropologie/4114529100201_014_b?$an-category$&qlt=80&fit=constrain' w='129px'></Image>
+            <Text>
+            Silent D Otto Booties
+        </Text>
+        </Box>
+      </SwiperSlide>
+      <SwiperSlide>
+      <Box >
+            <Image src='https://images.urbndata.com/is/image/Anthropologie/4114529100206_066_b2?$an-category$&qlt=80&fit=constrain' w='129px'></Image>
             <Text>Seychelles Neve Heels</Text>
         </Box>
       </SwiperSlide>
       <SwiperSlide>
       <Box >
-            <Image src='https://images.urbndata.com/is/image/Anthropologie/54684998_011_b2?$an-category$&qlt=80&fit=constrain' w='129px'></Image>
-            <Text>Seychelles Neve Heels</Text>
+            <Image src='https://images.urbndata.com/is/image/Anthropologie/4114529100201_045_b2?$an-category$&qlt=80&fit=constrain' w='129px'></Image>
+            <Text>
+            Maeve Cowl-Neck Pullover Sweater
+        </Text>
         </Box>
       </SwiperSlide>
       <SwiperSlide>
       <Box >
-            <Image src='https://images.urbndata.com/is/image/Anthropologie/54684998_011_b2?$an-category$&qlt=80&fit=constrain' w='129px'></Image>
-            <Text>Seychelles Neve Heels</Text>
+            <Image src='https://images.urbndata.com/is/image/Anthropologie/4114529100206_072_b2?$an-category$&qlt=80&fit=constrain' w='129px'></Image>
+            <Text>
+            The Maeve Mock-Neck Color-Tipped Sweater
+        </Text>
         </Box>
       </SwiperSlide>
       <SwiperSlide>
       <Box >
-            <Image src='https://images.urbndata.com/is/image/Anthropologie/54684998_011_b2?$an-category$&qlt=80&fit=constrain' w='129px'></Image>
-            <Text>Seychelles Neve Heels</Text>
-        </Box>
-      </SwiperSlide>
-      <SwiperSlide>
-      <Box >
-            <Image src='https://images.urbndata.com/is/image/Anthropologie/54684998_011_b2?$an-category$&qlt=80&fit=constrain' w='129px'></Image>
-            <Text>Seychelles Neve Heels</Text>
+            <Image src='https://images.urbndata.com/is/image/Anthropologie/4114086690038_004_b2?$an-category$&qlt=80&fit=constrain' w='129px'></Image>
+            <Text>
+            Maeve Bow Sweater
+        </Text>
         </Box>
       </SwiperSlide>
       <SwiperSlide>
       <Box>
-            <Image src='https://images.urbndata.com/is/image/Anthropologie/54684998_011_b2?$an-category$&qlt=80&fit=constrain' w='129px'></Image>
-            <Text>Seychelles Neve Heels</Text>
+            <Image src='https://images.urbndata.com/is/image/Anthropologie/4114529100208_001_b2?$an-category$&qlt=80&fit=constrain' w='129px'></Image>
+            <Text>Maeve Crewneck Puff-Sleeve Sweater</Text>
         </Box>
       </SwiperSlide>
       <SwiperSlide>
       <Box >
-            <Image src='https://images.urbndata.com/is/image/Anthropologie/54684998_011_b2?$an-category$&qlt=80&fit=constrain' w='129px'></Image>
-            <Text>Seychelles Neve Heels</Text>
+            <Image src='https://images.urbndata.com/is/image/Anthropologie/4114086690039_009_b2?$an-category$&qlt=80&fit=constrain' w='129px'></Image>
+            <Text>Maeve Cropped Crew-Neck Sweater</Text>
         </Box>
       </SwiperSlide>
       <SwiperSlide>
       <Box >
-            <Image src='https://images.urbndata.com/is/image/Anthropologie/54684998_011_b2?$an-category$&qlt=80&fit=constrain' w='129px'></Image>
-            <Text>Seychelles Neve Heels</Text>
+            <Image src='https://images.urbndata.com/is/image/Anthropologie/4114326950079_066_b2?$an-category$&qlt=80&fit=constrain' w='129px'></Image>
+            <Text>Maeve Plush V-Neck Sweater</Text>
         </Box>
       </SwiperSlide>
       <SwiperSlide>
       <Box >
-            <Image src='https://images.urbndata.com/is/image/Anthropologie/54684998_011_b2?$an-category$&qlt=80&fit=constrain' w='129px'></Image>
+            <Image src='https://images.urbndata.com/is/image/Anthropologie/76090299_066_b2?$an-category$&qlt=80&fit=constrain' w='129px'></Image>
             <Text>Seychelles Neve Heels</Text>
         </Box>
       </SwiperSlide>
@@ -247,4 +258,4 @@ fetch(`https://ill-ray-cape.cyclic.app/todo/delete/${todoID}`,{
   )
 }
 
-export default CartPage
+export default CartPage;

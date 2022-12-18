@@ -21,15 +21,27 @@ const toast=useToast()
   },[])
  
   const AddToCart=()=>{
-    storeData("Cart",data)
-      toast({
-          title: 'Added',
-          status: 'success',
-          duration: 3000,
-          isClosable: true,
-        })
-  }
+  
+    fetch("https://ill-ray-cape.cyclic.app/todo/add",{
+           method:"POST",
+          body:JSON.stringify(data),
+          headers:{
+           "Content-Type":"application/json",
+           "Authorization":`Bearer ${localStorage.getItem("psctoken")}`
 
+       }})
+       .then((res)=>res.json())
+       .then((res)=>console.log(res))
+       .catch((er)=>console.log(er))
+     toast({
+         title: 'Added',
+         status: 'success',
+         duration: 3000,
+         isClosable: true,
+       })
+       console.log(data)
+     }
+ 
  
   return (
     <Wrap spacing={10}  justify="center" marginTop="60px"  >
