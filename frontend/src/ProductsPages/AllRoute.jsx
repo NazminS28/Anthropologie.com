@@ -13,6 +13,12 @@ import SaleSingle from './SaleSingle';
 import CartPage from '../Components/CartPage';
 
 import AdminAdd from '../AdminPage/AdminAdd';
+import Address from '../Components/Address';
+import Shippingdetail from '../Components/Shippingdetail';
+import Paymentcard from '../Components/PaymentCard';
+import Verifyotp from '../Components/Verifyotp';
+import Successpage from '../Components/Successpage';
+import Placed from '../Components/Placed';
 
 
 const AllRoute  = () => {
@@ -31,6 +37,13 @@ const AllRoute  = () => {
 
         <Route path="/" element={<Homepage />}></Route>
         <Route path="/admin" element={<AdminAdd />}></Route>
+
+        <Route path="/address" element={<Address />}></Route>
+        <Route path='/shippingdetail' element={<Shippingdetail />}></Route>
+        <Route path="/paymentcard" element={<Paymentcard/>}></Route>
+        <Route path="/verifyotp" element={<Verifyotp/>}></Route>
+        <Route path="/successpage" element={<Successpage/>}></Route>
+        <Route path="/placed" element={<Placed/>}></Route>
     </Routes>
   )
 }

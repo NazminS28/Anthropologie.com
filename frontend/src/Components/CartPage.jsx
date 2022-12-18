@@ -1,7 +1,8 @@
 import React from 'react'
 import { Box, Grid, GridItem,Text,Button, Stack, Select, Heading, Link,Image, SimpleGrid } from '@chakra-ui/react'
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react'
+
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination'

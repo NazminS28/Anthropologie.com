@@ -1,0 +1,184 @@
+* {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
+}
+
+
+
+.font {
+  display: flex;
+  margin:1rem auto;
+  justify-content: center;
+  margin-top: "2.5rem";
+  height: "0.5rem";
+}
+
+hr.new1 {
+  border: 0.125rem solid rgb(2, 20, 20);
+  margin-top: -0.125rem;
+}
+
+
+@media (min-width: 0px) and (max-width: 768px) {
+  .container {
+    display: block;
+    margin: auto;
+    justify-content: center;
+  }
+  .main {
+    width: 80%;
+    background-color: #ffffff;
+    border: 0rem solid;
+    margin:auto;
+  }
+  
+  .main2 {
+    width: 80%;
+    margin: auto;
+    margin-top: 10rem;
+  }
+  .boxs2 {
+    height: 2em;
+    width: 56vw;
+    box-sizing: border-box;
+    border: 0.1rem solid #939395;
+    padding: 0.4rem;
+    outline: none;
+    font-size: 1rem;
+    margin: 0.25rem 0rem 0.95rem 0rem;
+  }
+  .box3 {
+    height: 2rem;
+    width: 27vw;
+    box-sizing: border-box;
+    border: 0.1rem solid #939395;
+    padding: 0.4rem;
+    outline: none;
+    font-size: 1rem;
+    margin: 0.25rem 0rem 0.95rem 0rem;
+    border-radius: 0.3rem;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+  }
+  .main {
+    width: 61%;
+    background-color: #ffffff;
+    border: 0rem solid;
+    margin-right: 5%;
+  }
+  
+  .main2 {
+    width: 25%;
+    margin-top: 10rem;
+  }
+  .boxs2 {
+    height: 3rem;
+    width: 56vw;
+    box-sizing: border-box;
+    border: 0.1rem solid #939395;
+    padding: 0.4rem;
+    outline: none;
+    font-size: 1rem;
+    margin: 0.25rem 0rem 0.95rem 0rem;
+  }
+  .box3 {
+    height: 3rem;
+    width: 27vw;
+    box-sizing: border-box;
+    border: 0.1rem solid #939395;
+    padding: 0.4rem;
+    outline: none;
+    font-size: 1rem;
+    margin: 0.25rem 0rem 0.95rem 0rem;
+    border-radius: 0.3rem;
+  }
+}
+
+
+
+.box1 {
+  font-size: 0.9rem;
+  margin-bottom: 0.125rem;
+  letter-spacing: 0.1rem;
+  font-weight: 600;
+}
+
+.boxs1 {
+  display: flex;
+  gap: 1.25rem;
+}
+
+
+
+.boxs2:focus {
+  border-radius: 0.3rem;
+  border: 0.125rem solid teal;
+}
+
+
+
+.box3:focus {
+  border: 0.125rem solid teal;
+}
+.box4 {
+  height: 6.5rem;
+  width: 114vh;
+  padding: 0.4rem;
+  display: flex;
+  justify-content: space-between;
+  border: 0.1rem solid;
+  margin: 0.25rem 0rem 1.25rem 4.6%;
+  align-items: center;
+  background: #f7f6f2;
+}
+.box4 > div > h5 {
+  margin: 0.625rem 0rem 1.5rem 1.25rem;
+}
+.box4 > div > p {
+  margin: 0.625rem 0rem 12px 1.25rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.1rem;
+}
+.box4 > div > button {
+  height: 2.9rem;
+  width: 22rem;
+  border: 0.1rem solid;
+  background: white;
+  font-size: 0.9rem;
+  letter-spacing: 0.1rem;
+}
+
+.box5 {
+  height: 0.9rem;
+  width: 0.9rem;
+  margin: 0.25rem 0.3rem 0.95rem 0rem;
+}
+
+.box7 {
+  height: 3rem;
+  width: 27vw;
+  box-sizing: border-box;
+  padding: 0.4rem;
+  outline: none;
+  font-size: 1rem;
+  margin: 0.25rem 0rem 0.95rem 0rem;
+  border: 0.1rem solid #939395;
+}
+
+.box7:focus {
+  border: 0.125rem solid teal;
+  border-radius: 0.3rem;
+}
+.boxs4 {
+  width: 114vh;
+  padding: 0.5rem 0rem 0rem 1.25rem;
+
+  border: 0.1rem solid;
+  margin: 0.25rem 0rem 1.25rem 4.6%;
+
+  background: #f7f6f2;
+}

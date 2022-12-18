@@ -1,0 +1,44 @@
+
+
+@media (min-width: 0px) and (max-width: 400px) {
+    .spinner{
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        margin-left:40vw
+    }
+  }
+  @media (min-width: 400px) and (max-width: 768px) {
+    .spinner{
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        margin-left:30vw
+    }
+  }
+  @media (min-width: 768px) {
+    .spinner{
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        margin-left:10vw
+    }
+  }
+.btn{
+    background-color:rgb(211, 212, 214);
+    margin: 1rem 0rem;
+    height: 5vh;
+    width: 80%;
+    border-radius: 0.5rem;
+}
+.btn:hover{
+    background-color: rgb(196, 245, 245);
+    
+}
+.btnPromo{
+    background-color: rgb(211, 212, 214);
+    margin: 1rem 0rem;
+    height: 5vh;
+    border-radius: 0.5rem;
+}
+.btnPromo:hover{
+    background-color: rgb(196, 245, 245);
+    
+}

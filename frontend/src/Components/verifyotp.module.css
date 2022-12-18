@@ -1,0 +1,131 @@
+
+
+
+  @media (min-width: 0px) and (max-width: 400px) {
+    .otpBox {
+        width: 80%;
+        height: 50vh;
+        margin: auto;
+        margin-top: 12%;
+        padding: 2%;
+        background-color: rgb(211, 212, 214);
+        border-radius: 50px;
+    }
+    .btn {
+        margin: 1rem auto;
+        margin-left: 0%;
+        color: rgb(244, 108, 108);
+        width: 16rem;
+        height: 2rem;
+        font-weight: bolder;
+        border-radius: 0.4rem;
+        letter-spacing: 0.001rem;
+        cursor: pointer;
+        
+    }
+    .inputOTP {
+        display: block;
+        margin-left: 15%;
+    }
+    .para {
+        font-size: 1rem;
+        margin: 1rem auto;
+        color: rgb(52, 46, 46);
+        letter-spacing: 0.09rem;
+        font-weight: 600;
+    }
+  }
+  @media (min-width: 400px) and (max-width: 768px) {
+    .otpBox {
+        width: 60%;
+        margin: auto;
+        margin-top: 12%;
+        padding: 2%;
+        background-color:  rgb(211, 212, 214);
+        border-radius: 50px;
+    }
+    .btn {
+        margin: auto;
+        margin-left: 17%;
+        color: rgb(244, 108, 108);
+        width: 16rem;
+        height: 2rem;
+        font-weight: bolder;
+        border-radius: 0.4rem;
+        letter-spacing: 0.001rem;
+        cursor: pointer;
+        
+    }
+    .inputOTP {
+        display: flex;
+        margin-left: 15%;
+    }
+    .para {
+        font-size: 1rem;
+        color: rgb(52, 46, 46);
+        margin-right: 0.6rem;
+        letter-spacing: 0.09rem;
+        font-weight: 600;
+    }
+    
+  }
+  @media (min-width: 768px) {
+    .otpBox {
+        width: 40%;
+        margin: auto;
+        margin-top: 12%;
+        padding: 2%;
+        background-color: rgb(211, 212, 214);
+        border-radius: 50px;
+    }
+    .btn {
+        margin: auto;
+        margin-left: 20%;
+        color: rgb(244, 108, 108);
+        width: 16rem;
+        height: 2rem;
+        font-weight: bolder;
+        border-radius: 0.4rem;
+        letter-spacing: 0.001rem;
+        cursor: pointer;
+        
+    }
+    .inputOTP {
+        display: flex;
+        margin-left: 15%;
+    }
+    .para {
+        font-size: 1rem;
+        color: rgb(52, 46, 46);
+        margin-right: 0.6rem;
+        letter-spacing: 0.09rem;
+        font-weight: 600;
+    }
+  }
+.otp{
+    width: 100px;
+    height: 32px;
+    outline: none;
+}
+
+.btn:hover {
+    background-color: rgb(32, 30, 30);
+    color: rgb(227, 198, 198);
+}
+
+.para1 {
+    font-weight: 600;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 3px;
+    letter-spacing: 1.5px;
+}
+
+.para2 {
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 1px;
+    font-weight: 400;
+    color: rgb(20, 14, 12);
+    letter-spacing: 0.5px;
+}

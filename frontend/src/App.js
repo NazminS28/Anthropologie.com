@@ -9,19 +9,16 @@ import { RespNav } from "./Components/respnav";
 function App() {
   return (
     <div className="App">
-    {/* <Clodata/> */}
-    <div className="App">
       <div className="resp-nav">
        <RespNav/>
        
       </div>
-
       <div className="main-nav">   
       <Navbar />
       </div>
-      </div>
       <AllRoute/>
       <Footer/>
+      
     </div>
   );
 }
