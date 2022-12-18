@@ -104,6 +104,27 @@
   .show-div > li > a {
     text-align: center;
   }
+
+
+  .para {
+    margin-right: 10px;
+    /* border:2px solid red; */
+    color: #fff;
+    font-size:14px;
+    font-family: "Heebo", sans-serif;
+    padding: 15px;
+    padding-top: 9px;
+  }
+  
+  
+.link {
+  color: #fff;
+  font-family: "Heebo", sans-serif;
+  font-size: 14px;
+  padding-top: 9px;
+}
+
+
 }
 @media (max-width: 750px) {
   /* .class-input{
@@ -118,4 +139,25 @@
   }
   .abcd{
 display: none;  }
+
+
+.para {
+  margin-right: 5px;
+  /* border:2px solid red; */
+  color: #fff;
+  font-size:10px;
+  font-family: "Heebo", sans-serif;
+  padding: 15px;
+  padding-top: 9px;
+}
+
+
+.link {
+color: #fff;
+font-family: "Heebo", sans-serif;
+font-size: 10px;
+padding-top: 9px;
+}
+
+
 }

@@ -5,13 +5,8 @@ import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { AiOutlineUser, AiOutlineSearch } from "react-icons/ai";
 import { BsHandbag } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
-import style from "./login.module.css";
-import { FaBars, FaRegEye } from "react-icons/fa";
 import { SearchIcon } from "@chakra-ui/icons";
-import { useDispatch, useSelector } from "react-redux";
 import { useToast } from "@chakra-ui/react";
-import { loginSuccess, loginFailure } from "../redux/action";
-import MenSubNav from "./Dropedown";
 import axios from "axios";
 import "./Search.css";
 
@@ -25,7 +20,6 @@ function Navbar() {
   const toast = useToast();
   const [query, setQuery] = React.useState("");
   const [data, setData] = useState([]);
-  const [show, setShow] = useState(false);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -152,7 +146,7 @@ function Navbar() {
     <div>
       {/* banner */}
       {/* {console.log(token)} */}
-      <div
+      <div 
         id="carouselExampleControls"
         className="carousel slide"
         data-bs-ride="carousel"
@@ -168,7 +162,7 @@ function Navbar() {
               </p>
               <p className={styles.para}>New: Summer,Naturally</p>
               <a className={styles.link} href="">
-                shop the latest edit
+                Shop latest.
               </a>
             </div>
           </div>
