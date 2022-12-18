@@ -2,7 +2,7 @@ import React from 'react'
 import { Routes,Route } from 'react-router-dom'
 import ClothesSingle from './ClothesSingle'
 import Homepage from "../pages/Homepage";
-import Login from "../Components/Login";
+// import Login from "../Components/Login";
 import Clothes from './Clothes';
 import Shoes from './Shoes';
 import Furniture from './Furniture';
@@ -27,7 +27,7 @@ const AllRoute  = () => {
 
 
         <Route path="/" element={<Homepage />}></Route>
-        <Route path="/login" element={<Login />}></Route>
+        {/* <Route path="/login" element={<Login />}></Route> */}
     </Routes>
   )
 }
