@@ -1,8 +1,8 @@
 import React from 'react'
-import { Box, Grid, GridItem,Text,Button, Stack, Select, Heading, Link,Image, SimpleGrid } from '@chakra-ui/react'
+import { Box, Grid, GridItem,Text,Button, Stack, Select, Heading, Link,Image, SimpleGrid,Spinner } from '@chakra-ui/react'
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react'
-
+import { useNavigate } from 'react-router-dom';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination'
@@ -15,6 +15,7 @@ import Cart_single_Item from './Cart_single_Item';
 
 
 const CartPage = () => {
+  const navigate=useNavigate()
   const [cartItem,setcartItem] = useState([]);
   const [full,Setfull] = useState([])
   const [data,setData]=useState([])
@@ -23,16 +24,17 @@ const CartPage = () => {
   const [sumo,setsum] = useState(1)
   const handleSubmit=(todoID)=>{
     fetch(`https://ill-ray-cape.cyclic.app/todo/delete/${todoID}`,{
+    
         method:"DELETE",
         headers:{
             "Authorization":`Bearer ${localStorage.getItem("psctoken")}`
         }
     })
     
-    
     }
+   
+    console.log("ram")
     useEffect(()=>{
-        setLoading(true)
         fetch("https://ill-ray-cape.cyclic.app/todo",{
             headers:{
             "Authorization":`Bearer ${localStorage.getItem("psctoken")}`
@@ -59,9 +61,18 @@ const CartPage = () => {
         getAverageAge()
     },[handleSubmit])
     
+
+    
+   
+
   function Update(value) {
     // Setfull([...full,value]);
     // console.log(full);
+  }
+
+  const handleCheckout=()=>{
+    localStorage.setItem("Carts",sumo)
+    navigate("/address")
   }
   return (
        <Box >
@@ -78,6 +89,7 @@ const CartPage = () => {
     columnGap={'20px'}
     rowGap="10px"
     >    
+    
           <GridItem></GridItem>
           <GridItem>
             <Text>Item</Text>
@@ -92,7 +104,7 @@ const CartPage = () => {
           </GridItem>
          </Grid>
         </Box>
-             
+      
                {data.map((elem)=>(
                    <Cart_single_Item elem={elem} Update={Update}/>
               ))} 
@@ -133,7 +145,7 @@ const CartPage = () => {
            </Box>
 
            <Box >
-            <Button p={'10px 20px'} background="#4B5666" color={'white'} border="none" width={'100%'}  fontSize={'1.1rem'} mb="10px">
+           <Button onClick={handleCheckout} p={'10px 20px'} background="#4B5666" color={'white'} border="none" width={'100%'}  fontSize={'1.1rem'} mb="10px">
               PROCEED TO CHECKOUT
             </Button>
             <Button p={'10px 20px'}  color={'white'} border="none" width={'100%'}  fontSize={'1.1rem'}>

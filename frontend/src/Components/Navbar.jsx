@@ -116,6 +116,22 @@ function Navbar() {
     }
   };
 
+  useEffect(()=>{
+    fetch("https://ill-ray-cape.cyclic.app/todo",{
+        headers:{
+        "Authorization":`Bearer ${localStorage.getItem("psctoken")}`
+        }
+    })
+    .then((res)=>res.json())
+    .then((res)=>{
+        setCart(res)
+        console.log(res)
+    })
+    .catch((er)=>{
+        console.log(er)
+    })
+  },[])
+
   const handleSearch = (e) => {
     setQuery(e.target.value);
     console.log(query);

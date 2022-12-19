@@ -45,16 +45,7 @@ const Shippingdetail = () => {
           </div>
          
          
-          <div style={{width:"100%",borderBottom:"1px solid #d3d3d3",borderTop:"1px solid #d3d3d3"}}>
-            <div className={style.items}>
-                <p className="my-0">Item</p>
-            </div>
-            <div className={style.itamTags}>
-                <p >Item price</p>
-                <p >Quantity</p>
-                <p >Total Price</p>
-            </div>
-        </div>
+        
         {/* map data here */}
         </div>
       </div>

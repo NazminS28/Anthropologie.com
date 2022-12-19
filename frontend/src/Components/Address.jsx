@@ -109,10 +109,10 @@ const Address = () => {
         </div>
 
         <span className={style.box1}>Postcode*</span><br />
-        <input  name="postcode" value={address.postcode} onChange={(e)=> chageFormData(e)}  required type="text" className={style.box7} />
+        <input  name="postcode" value={address.postcode} onChange={(e)=>{(e.target.value.length<7) && chageFormData(e)}}  required type="text" className={style.box7} />
         <br />
         <span className={style.box1}>Daytime Phone*</span><br />
-        <input  name="phone" value={address.phone} onChange={(e)=> chageFormData(e)}  required type="text" placeholder="Do not enter a country code" className={style.box7} />
+        <input  name="phone" value={address.phone} onChange={(e)=>{(e.target.value.length<11) && chageFormData(e)}}  required type="text" placeholder="Do not enter a country code" className={style.box7} />
 
         </form>
        

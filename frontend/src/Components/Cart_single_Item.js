@@ -20,6 +20,7 @@ const Cart_single_Item = ({elem,Update}) => {
             }
         })
       }
+      
       const handleUpdate=(todoID,val)=>{
 
         const data ={
@@ -61,7 +62,7 @@ const Cart_single_Item = ({elem,Update}) => {
                   </GridItem>
                   <GridItem>
                     <Box>
-                      <Text mb={'5px'} fontSize={'15px'}>{elem.title}</Text>
+                      <Text mb={'5px'} fontSize={'15px'}>{elem.title?elem.title:elem.name}</Text>
                       <Text  mb={'5px'} fontSize={'15px'}>Style <Text as={'span'}  color='gray'>#79422903</Text></Text>
                       <Text  mb={'5px'} fontSize={'15px'}>Color <Text as={'span'}  color='gray'>Taupe</Text></Text>
                       <Text  mb={'5px'} fontSize={'15px'}>Size <Text as={'span'} color='gray' >32</Text></Text>
@@ -71,7 +72,7 @@ const Cart_single_Item = ({elem,Update}) => {
                   <GridItem>
                     <Box>
                     <Box display={'flex'} justifyContent={'space-between'} m={'0px 10px'}  h={'150px'}>
-                     <Text>{elem.price}</Text>
+                     <Text>${elem.price}</Text>
                      <Stack spacing={3} >
           <select  onChange={(e)=>handleUpdate(elem._id,e.target.value)}>
           <option value='1'>1</option>
@@ -80,7 +81,7 @@ const Cart_single_Item = ({elem,Update}) => {
           <option value='4'>4</option>
             </select>
           </Stack>
-                     <Text>{elem.price*elem.quantity}</Text>
+                     <Text>{elem.quantity?elem.price*elem.quantity:elem.price}</Text>
                     </Box>
                     <Box display={'flex'} justifyContent={'flex-end'} m={'10px'}>
                       <Link mr={'15px'} textDecoration={'underline'} fontSize="13px" color={'#167A92'} onClick={()=>handleSubmit(elem._id)}>Remove</Link>

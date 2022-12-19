@@ -5,7 +5,8 @@ import style from "./successpage.module.css"
 const Successpage = () => {
   const navigate = useNavigate();
   const handleChange=()=>{
-    navigate("/");
+    navigate("/order");
+    
   }
   return (
     <>

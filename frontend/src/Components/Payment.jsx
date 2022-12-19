@@ -5,20 +5,20 @@ import styles from "./payment.module.css"
 const Payment = (props) => {
   const {handleClick,spinner}=props;
   const [showpromo,setshowpromo]=useState(false);
-  const [paymentdata, setpaymentdata] = useState(JSON.parse(localStorage.getItem("paymentdata"))||{subtotal:0,shipping:50,tax:12,total:1,promo:0});
+  const [paymentdata, setpaymentdata] = useState(JSON.parse(localStorage.getItem("paymentdata"))||{subtotal:localStorage.getItem("Carts")||0,shipping:50,tax:12,total:1,promo:0});
   localStorage.setItem("paymentdata",JSON.stringify(paymentdata))
   let [promoapply,setpromoapply]=useState(JSON.parse(localStorage.getItem("promoapply"))||false)
   localStorage.setItem("promoapply",JSON.stringify(promoapply));
   const[promodata,setpromodata]=useState("")
   const handleChange =()=>{
-    let cartdata =  JSON.parse(localStorage.getItem("Cart")) || [];
-    //console.log(cartdata)
-    let to =  cartdata.reduce(function(acc,el){
-        return acc + (el.total||el.price);
-    },0)||100;
-   setpaymentdata((paymentdata)=>{return{...paymentdata,subtotal:to}})
+    let cartdata =  JSON.parse(localStorage.getItem("Cart"))|| [];
+    console.log(cartdata)
+    // let to =  cartdata.reduce(function(acc,el){
+    //     return acc + (el.total||el.price);
+    // },0)||100;
+  //  setpaymentdata((paymentdata)=>{return{...paymentdata,subtotal:to}})
     console.log(paymentdata)
-  setpaymentdata((paymentdata)=>{return{...paymentdata,total:(to+paymentdata.shipping+(Math.floor((to/100)*paymentdata.tax))-(Math.floor((to/100)*paymentdata.promo)))}})
+  setpaymentdata((paymentdata)=>{return{...paymentdata,total:(paymentdata.subtotal+paymentdata.shipping+(Math.floor((paymentdata.subtotal/100)*paymentdata.tax))-(Math.floor((paymentdata.subtotal/100)*paymentdata.promo)))}})
 
 }
 const handlepromo=()=>{
@@ -72,7 +72,7 @@ useEffect(() => {
         </div>
         <div>
           <span style={{ color: "black" }}>Total</span>
-          <span style={{ color: "black", float: "right" }}>${paymentdata.total}</span>
+          <span style={{ color: "black", float: "right" }}>${paymentdata.total.toFixed(2)}</span>
         </div>
         <div>
          {spinner? <Spinner className={styles.spinner} />:<button className={styles.btn} style={{}} onClick={()=>handleClick()}>

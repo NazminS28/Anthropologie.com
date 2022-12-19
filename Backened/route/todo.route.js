@@ -6,6 +6,7 @@ const {TodoModel}=require("../models/Todo.model")
 
 
 todoRouter.get("/",async(req,res)=>{
+    
     try{
      const notes=await TodoModel.find()
      res.send(notes)

@@ -19,6 +19,7 @@ import Paymentcard from '../Components/PaymentCard';
 import Verifyotp from '../Components/Verifyotp';
 import Successpage from '../Components/Successpage';
 import Placed from '../Components/Placed';
+import Order from '../Components/Order';
 
 
 const AllRoute  = () => {
@@ -43,7 +44,8 @@ const AllRoute  = () => {
         <Route path="/paymentcard" element={<Paymentcard/>}></Route>
         <Route path="/verifyotp" element={<Verifyotp/>}></Route>
         <Route path="/successpage" element={<Successpage/>}></Route>
-        <Route path="/placed" element={<Placed/>}></Route>
+        <Route path="/order" element={<Order/>}></Route>
+
     </Routes>
   )
 }
