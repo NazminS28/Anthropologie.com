@@ -116,21 +116,21 @@ function Navbar() {
     }
   };
 
-  useEffect(()=>{
-    fetch("https://ill-ray-cape.cyclic.app/todo",{
-        headers:{
-        "Authorization":`Bearer ${localStorage.getItem("psctoken")}`
-        }
+  useEffect(() => {
+    fetch("https://ill-ray-cape.cyclic.app/todo", {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("psctoken")}`,
+      },
     })
-    .then((res)=>res.json())
-    .then((res)=>{
-        setCart(res)
-        console.log(res)
-    })
-    .catch((er)=>{
-        console.log(er)
-    })
-  },[])
+      .then((res) => res.json())
+      .then((res) => {
+        setCart(res);
+        console.log(res);
+      })
+      .catch((er) => {
+        console.log(er);
+      });
+  }, []);
 
   const handleSearch = (e) => {
     setQuery(e.target.value);
@@ -162,7 +162,7 @@ function Navbar() {
     <div>
       {/* banner */}
       {/* {console.log(token)} */}
-      <div 
+      <div
         id="carouselExampleControls"
         className="carousel slide"
         data-bs-ride="carousel"
@@ -183,7 +183,7 @@ function Navbar() {
             </div>
           </div>
           <div
-            style={{ background: "rgb(175,26,26)" }}
+            style={{ background: "rgb(175, 26, 26)" }}
             className="carousel-item"
           >
             <div className="d-flex  justify-content-center">
@@ -229,7 +229,10 @@ function Navbar() {
 
       <div
         className="d-flex justify-content-end align-items-center py-1"
-        style={{ background: "#f7f6f2", height: "40px" }}
+        style={{
+          background: "#f7f6f2",
+          height: "40px",
+        }}
       >
         <div
           style={{
@@ -448,13 +451,13 @@ function Navbar() {
 
       {/* Search-area */}
       <div
-        // style={{ border:"10px soild red" }}
+      // style={{ border:"10px soild red" }}
       >
-        <div  style={{ display: "flex", justifyContent: "space-between" }}>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
           <div
-          className="antropology"
+            className="antropology"
             style={{
-              border:"10px soild red",
+              border: "10px soild red",
               display: "flex",
               width: "28%",
               justifyContent: "space-between",
@@ -513,16 +516,14 @@ function Navbar() {
                   className="input-group-text"
                   style={{ background: "white" }}
                 >
-                 
-                  <AiOutlineSearch  color="#77a0b2" fontSize="23px" />
-                  
+                  <AiOutlineSearch color="#77a0b2" fontSize="23px" />
                 </button>
               </div>
             </form>
             <Link to="/cartPage">
               <div style={{ paddingTop: "10px" }}>
                 <Link to="/cartPage">
-                <BsHandbag color="#2e80a1" fontSize="25px" />
+                  <BsHandbag color="#2e80a1" fontSize="25px" />
                 </Link>
               </div>
               <span className="translate-middle badge rounded-pill bg-danger">
@@ -541,8 +542,8 @@ function Navbar() {
               zIndex: "3",
               display: "grid",
               position: "absolute",
-              left: "72.2%",
-              top: "45px",
+              left: "72.6%",
+              top: "125px",
               backgroundColor: "#EDF2F7",
             }}
           >
