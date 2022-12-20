@@ -11,7 +11,7 @@
     .spinner{
         margin-top: 1rem;
         margin-bottom: 1rem;
-        margin-left:30vw
+        margin-left:30vw;
     }
   }
   @media (min-width: 768px) {

@@ -183,7 +183,7 @@ function Navbar() {
             </div>
           </div>
           <div
-            style={{ background: "rgb(175, 26, 26)" }}
+            style={{ background: "rgb(175,26,26)" }}
             className="carousel-item"
           >
             <div className="d-flex  justify-content-center">
@@ -229,10 +229,7 @@ function Navbar() {
 
       <div
         className="d-flex justify-content-end align-items-center py-1"
-        style={{
-          background: "#f7f6f2",
-          height: "40px",
-        }}
+        style={{ background: "#f7f6f2", height: "40px" }}
       >
         <div
           style={{
@@ -543,7 +540,7 @@ function Navbar() {
               display: "grid",
               position: "absolute",
               left: "72.6%",
-              top: "125px",
+              top: "120px",
               backgroundColor: "#EDF2F7",
             }}
           >
