@@ -15,7 +15,7 @@ const { id } = useParams()
 const toast=useToast()
 
   React.useEffect(()=>{
-    axios.get(`https://stock-server.onrender.com/cookingCutters/${id}`)
+    axios.get(`https://stock-server.onrender.com/products/${id}`)
     .then((res)=>{setData(res.data)})
     .catch((error)=>console.log(error))
   },[])

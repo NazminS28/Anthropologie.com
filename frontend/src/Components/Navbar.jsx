@@ -139,25 +139,18 @@ function Navbar() {
   console.log(data);
   React.useEffect(() => {
     if (query) {
-      axios
-        .get(
-          `https://anthropologie-server-production.up.railway.app/new_clothing?_limit=3&_page=1`,
-          {
-            params: {
-              q: query,
-            },
-          }
-        )
-        .then((r) => {
-          setData(r.data);
-          console.log(r);
-        })
-        .catch((e) => {
-          console.log(e);
-        });
+      setTimeout(() => {
+        axios
+          .get(`https://stock-server.onrender.com/products?_limit=3&_page=1&q=${query}`)
+          .then((r) => {
+            setData(r.data);
+          })
+          .catch((e) => {
+            console.log(e);
+          });
+      }, 800);
     }
   }, [query]);
-
   return (
     <div>
       {/* banner */}
@@ -563,10 +556,10 @@ function Navbar() {
             </Link>
             {data.length > 0 &&
               data.map((item) => (
-                <Link to={`/cloth/${item.id}`}>
+                <Link to={`/gardens/${item.id}`}>
                   {" "}
                   <p onClick={() => setData([])} className="searchTitle">
-                    {item.title}
+                    {item.name}
                   </p>
                 </Link>
               ))}

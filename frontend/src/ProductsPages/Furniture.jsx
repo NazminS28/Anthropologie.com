@@ -12,7 +12,7 @@ const[loading,setLoading]=useState(false)
 const[error,setError]=useState(false)
 const fetchData = (page) => {
     axios
-      .get(`https://stock-server.onrender.com/blankets?_limit=12&_page=${page}`)
+      .get(`https://stock-server.onrender.com/products?category=lamps&_limit=12&_page=${page}`)
       .then((e) => {
         setLoading(true);
         console.log(e);

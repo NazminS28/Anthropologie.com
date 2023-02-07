@@ -265,11 +265,9 @@ const Clothes = () => {
               cloth.map((data) => (
                 <div key={data.id} className="cloth">
                   <Link to={`/cloth/${data.id}`}>
-                    {" "}
                     <div className="image">
-                      {" "}
                       <img src={data.image} alt="" />
-                    </div>{" "}
+                    </div>
                   </Link>
                   <div>
                     {" "}
